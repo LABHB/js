@@ -1,0 +1,292 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!--    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">-->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>撮影 前頭部</title>
+    <!-- jQuery -->
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Bootstrap4 -->
+    <link rel="stylesheet" href="//stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/forehead_sample.css">
+</head>
+<body>
+<div class="container" style="display: flex;justify-content: center;">
+    <div class="video_wrapper" >
+        <div id="sys_count_area"></div>
+            <div class="sys_line_explanation_area" id="sys_line1_explanation_area" style="display:none;">頭頂部のライン</div>
+        <div class="sys_line_explanation_area" id="sys_line2_explanation_area" style="display:none;">生え際のライン</div>
+        <video autoplay muted playsinline loop id="sys_camera" style="display:none;"></video>
+        <!--動画表示用-->
+        <canvas id="sys_picture"></canvas>
+        <!--画像取得用-->
+        <canvas id="sys_picture2" style="display: none"></canvas>
+    </div>
+</div>
+<div id="sys_video_footer">
+    <div id="sys_video_footer_step1" >
+        <p>
+        点線に合わせて撮影してください。
+        </p>
+        <a href='/app_hair/cameras/pre-forehead' class="btn btn-secondary">
+        キャンセル
+        </a>
+        <button type="button" class="btn btn-info ml-3" id="sys_take_picture_btn">　撮　影　</button>
+    </div>
+    <div id="sys_video_footer_step2"  style="display: none">
+        <p>
+            この画像でよろしいですか？<br>
+            生え際全体が写っていますか？
+        </p>
+        <button type="button" class="btn btn-info" id="sys_this_picture_ok_btn2">撮り直す</button>
+        <button type="button" class="btn btn-info ml-3" id="sys_this_picture_ok_btn">この画像でOK</button>
+    </div>
+</div>
+
+
+
+<script>
+    const resolution = { w: 1080, h: 970 };
+
+    const video  = document.querySelector("#sys_camera");
+    const canvas = document.querySelector("#sys_picture");
+    canvas.width = 720;
+    canvas.height = 960;
+
+    const ctx = canvas.getContext("2d");
+
+    video.play();
+
+    window.onload = () => {
+        let constraints;
+        var agent = navigator.userAgent;
+        if(agent.search(/iPhone/) != -1 || agent.search(/iPod/) != -1 || agent.search(/Android/) != -1){//スマホの場合
+            constraints = {
+                audio: false,
+                video: {
+                    width: { ideal: resolution.w },
+                    height: { ideal: resolution.h },
+                    facingMode: "user"   // フロントカメラを利用する
+                }
+            };
+        }
+        else if( agent.search(/iPad/) != -1 ){//ipadの場合
+//            $("#sys_picture").attr("width", 400);
+            constraints = {
+                audio: false,
+                video: {
+                    width: { ideal: resolution.w },
+                    height: { ideal: resolution.h },
+                    facingMode: "user"   // フロントカメラを利用する
+                    // facingMode: { exact: "environment" },// リアカメラを利用する
+                }
+            };
+        }
+        else {
+            constraints = {
+                audio: false,
+                video: {
+
+                    width: { ideal: resolution.w },
+                    height: { ideal: resolution.h },
+                    // facingMode: "user"   // フロントカメラを利用する
+                }
+            };
+        }
+
+        navigator.mediaDevices.getUserMedia(constraints).then(stream => {
+            video.srcObject = stream;
+            video.onloadedmetadata = (e) => {
+
+                // videoの高さを取得
+                // canvas.width = video.videoWidth;
+                // canvas.height = video.videoHeight;
+
+
+                videoToCanvas();
+                $(".sys_line_explanation_area").show();
+
+            };
+        }).catch(err => {
+            console.error(err);
+        });
+
+    };
+
+
+
+    $("#sys_take_picture_btn").on("click", function (){
+        myTimer();
+    })
+
+
+    //トリミング枠の左上座標
+    var ini_x;
+    var ini_y;
+    //トリミング枠の横・高さ
+    var dx;
+    var dy;
+
+    function videoToCanvas() {
+
+
+        ini_x = 0;
+        ini_y =  0;
+        dx = canvas.width;
+        dy = canvas.height;
+        
+
+        //鏡映
+        ctx.scale(-1,1);
+        ctx.translate(-canvas.width, 0);
+
+        const waku = new Image();
+        const circle = new Image();
+        circle.src = "./img/circle.png";  // 画像のURLを指定
+        waku.src = "./img/waku_v2.png";  // 画像のURLを指定
+
+
+
+
+        setInterval(function(){
+
+
+            // ctx.drawImage(video, ini_x, ini_y, dx, dy,//トリミング
+            //     ini_x, ini_y,  dx, canvas.height);
+
+            ctx.drawImage(video, ini_x, ini_y, dx, dy,//トリミング
+                ini_x, ini_y,  dx, dy);
+
+            //図形
+        
+
+
+            var y_waku = 0.4;
+
+
+            // ctx.drawImage(waku, canvas.width*(1-x_waku)/2, canvas.height*y_waku, canvas.width*x_waku, canvas.height*(1-y_waku));
+
+            ctx.drawImage(waku, ini_x, canvas.height*y_waku, dx, canvas.height*(1-y_waku));
+
+
+        
+
+
+        }, 1000/30);
+    }
+
+
+
+    //タイマー 5秒後に撮影
+    var my_timer_count = 0;
+    function myTimer() {
+
+        let take_time = 5;//6秒後に撮影
+        my_timer_count++;
+        if(my_timer_count < take_time) {
+            var disp_count = take_time - my_timer_count;
+            $("#sys_count_area").text(disp_count);
+            setTimeout(function () {
+                $("#sys_count_area").text("");
+                myTimer();
+            }, 1000);
+        }
+        if(my_timer_count == take_time) {
+            takePicture();
+            my_timer_count = 0;
+        }
+
+    }
+
+
+    //この画像でOK
+    $("#sys_this_picture_ok_btn").on("click", function (){
+
+        sendPicture();
+
+    })
+
+    //キャンセル
+    $("#sys_this_picture_ok_btn2").on("click", function (){
+
+        $("#sys_video_footer_step2").hide();
+        $("#sys_video_footer_step1").show();
+
+        $(".sys_line_explanation_area").show();
+
+        video.play();
+    })
+
+    function takePicture(){
+
+        video.pause();
+
+        $("#sys_video_footer_step1").hide();
+
+
+        $("#sys_video_footer_step2").show();
+
+        $(".sys_line_explanation_area").hide();
+
+    }
+
+
+    function sendPicture(){
+        const board = document.querySelector("#sys_picture");
+        const canvas = board.toDataURL("image/png"); 
+        console.log(canvas);
+
+        // const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        const csrf = "EObtM6uhBIVK5HN8zdZk3uol5FnraMD6IQvppvbvTeDp9SY7n6ah4cdOVy1u+AQuXsn4bZilt/NCS9Num2Pul94ARGw1NK2n2UPXYYlf9p8XbdiUxth9gYvAQFiuk8SD8H9gSQzNN0tu8Zlb/pLUww==";//cake4で関数変化
+
+        canvas.toBlob(function(blob) {
+
+            var formData = new FormData();
+
+                        formData.append('my_picture', blob, 'forehead.jpg');
+            
+
+            $.ajax({
+                type: "POST",
+                url: "/app_hair/cameras/img-upload-ajax",
+                beforeSend: function(xhr){
+                    xhr.setRequestHeader('X-CSRF-Token', csrf);
+                },
+                data: formData,
+                processData: false,// 必要
+                contentType: false,// 必要
+                success: function(res){
+                    res = JSON.parse(res);
+                    if(res.error_message) {
+                        alert("エラー："+res.error_message);
+                        video.play();
+                    }
+                    else {
+                                                location.href="/app_hair/cameras/pre-tophead"
+                        
+                    }
+
+                },
+                error: function(){
+                    alert("エラーが発生しました。もう一度撮り直してください。");
+                    location.reload();
+                }
+            });
+        // }, 'image/png');
+        }, 'image/jpeg', 0.95);
+    }
+
+
+</script>
+
+
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>-->
+
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!-- 参考URL：
+・https://qiita.com/t_furu/items/ef99e9d48b9c3c9af7f1
+・https://mebee.info/2020/01/10/post-5148/#outline__6
+・https://mebee.info/2020/02/29/post-5126/ -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Welcome to Firebase Hosting</title>
+
+    <style media="screen">
+      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
+      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
+      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
+      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
+      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
+      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
+      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
+      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
+      @media (max-width: 600px) {
+        body, #message { margin-top: 0; background: white; box-shadow: none; }
+        body { border-top: 16px solid #ffa100; }
+      }
+    </style>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-storage.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+
+  <script>
+   // Your web app's Firebase configuration
+   const firebaseConfig = {
+  apiKey: "AIzaSyA3Y9gkPcum9HERqjHFzmNhg-CVSeFT0Q0",
+  authDomain: "nues-4e350.firebaseapp.com",
+  databaseURL: "https://nues-4e350-default-rtdb.firebaseio.com",
+  storageBucket: 'gs://nues-4e350.appspot.com/',
+  projectId: "nues-4e350",
+  storageBucket: "gs://nues-4e350.appspot.com",
+  messagingSenderId: "236945135818",
+  appId: "1:236945135818:web:abf3092b0a2942827afc33"
+};
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+
+    //ストレージのルートのリファレンスを取得
+var storageRef = firebase.storage().ref();
+//ストレージのルートにあるsample.pngのリファレンスを取得    
+var imgSample = storageRef.child('foreheadCESXY2PaUNMCB6n6xEtgaSWdnLp1');
+window.onload = function() {
+  //htmlロード完了したらストレージの画像を表示してみる
+  imgSample.getDownloadURL().then(function(url){
+    document.getElementById("imgSample").style.backgroundImage = "url("+url+")";
+  }).catch(function(error) {
+    // Handle any errors
+    console.log(error);
+  });
+};
+  </script>
+  </head>
+  <body>
+    <div id="message">
+      <input type="file" id="file" />
+      <button id="up" type="button">アップする</button>
+    </div>
+    <div id="imgSample" style="display:block;width:200px;height:200px;background-color:#c0c0c0;"></div>
+    <input type="file" id="btnUpload" value="アップロード">
+
+
+    <script>
+    document.getElementById('up').addEventListener('click', function(){
+        var files = document.getElementById('file').files;
+        var image = files[0];
+        console.log(image.name);
+        console.log(image);
+        var ref = firebase.storage().ref().child(image.name);
+        ref.put(image).then(function(snapshot) {
+          alert('アップロードしました');
+        });
+      });
+    </script>
+  </body>
+  
+</html>

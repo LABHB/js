@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>NUE mypage faq</title>
+  <meta name="description" content="NUEは、メンズヘアケアブランドです。今の状況を教えてください。">
+  <meta name="format-detection" content="telephone=no">
+
+  <!-- favicon読込 -->
+  <link rel="shortcut icon" href="./img/favicon.png" type="image/png">
+
+  <!-- css読込 -->
+  <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+  <link rel="stylesheet" href="./css/style.css">  <!-- 共有部分の読込 -->
+  <link rel="stylesheet" href="./css/mypage_faq01_v2.css">
+
+  <!-- Jquery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+  <!-- Googleフォント読込【不要になったら削除】 -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- 各種JS読込 -->
+  <script src="./js/top.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-auth-compat.js"></script>
+
+  
+  <!-- フォント読込 -->
+  <link rel="stylesheet" href="https://use.typekit.net/mje6tvq.css">
+  <script type="text/javascript" src="//typesquare.com/3/tsst/script/ja/typesquare.js?628669ea81dc4fd3b384558dac1e02e5" charset="utf-8"></script>
+  
+  <!-- <script src="./js/top.js"></script> -->
+  <script src="./js/mypage_faq01_v2.js"></script>
+</head>
+<body>
+  <header class="header">
+    <button type="button" id="header-btn" class="header-btn" title="メニュー開閉"><span></span></button>
+    <h1 class="header-logo"><img src="./img/logo.svg" alt="NUE_logo" width="100"></h1>
+    <div class="header-menu">
+      <a href="#"><img src="./img/cart.svg" alt="account_circle"></a>
+      <a href="#"><img src="./img/account_circle.svg" alt="account_circle"></a>
+    </div>
+    <nav class="header-gnav">
+      <ul class="header-gnav-list">
+        <li><a href="#"><span class="material-icons header-gnav-about"> home </span>about</a></li>
+        <li><a href="#"><span class="material-icons header-gnav-products">inventory_2</span>products</a></li>
+        <li><a href="#"><span class="material-icons header-gnav-selfcheck">system_security_update_good</span>self check</a></li>
+        <li><a href="#"><span class="material-icons header-gnav-faq">help_outline</span>faq</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- /.header -->
+<div class="main">
+  <div class="faq_back">
+    <a href="#" class="btn_back"><span class="material-icons">navigate_before</span>5つの質問</a>
+  </div>
+  <div class="progressbar">
+    <div class="progress_back">
+      <div class="progress_front" width="37%"></div>
+    </div>
+  </div>
+      <div class="qusetion01">
+        <p>髪の毛の「量」に変化はありましたか？変化があれば、部位と合わせて教えてください。（複数選択可）</p>
+      </div>
+      <div class="main-top answer_box">
+        <div class="option1 label1_1">
+          <span class="option1-title">増えた</span> 
+          <div class="option2">
+            <div class="option2btn hidden_box1_1_1">
+              <input type="checkbox" id="label1_1_1"/>
+              <label class="label1_1_1" for="label1_1_1">生え際(おでこ付近)</label>
+            </div>
+            <div class="option2btn hidden_box1_1_2">
+              <input type="checkbox" id="label1_1_2"/>
+              <label class="label1_1_2" for="label1_1_2">頭頂部(つむじ付近)</label>
+            </div>
+            <div class="option2btn hidden_box1_1_3">
+              <input type="checkbox" id="label1_1_3"/>
+              <label class="label1_1_3">その他
+                <input class="fa1" type="text" placeholder="例) 全体的に密度が増えてきた">
+              </label>
+            </div>
+          </div>
+        </div>
+        
+        <div class="option1 label1_2">
+          <span class="option1-title">減った</span> 
+        <!-- </div> -->
+          <div class="option2">
+            <div class="option2btn hidden_box1_2_1">
+              <input type="checkbox" id="label1_2_1"/>
+              <label class="label1_2_1" for="label1_2_1">生え際(おでこ付近)</label>
+            </div>
+            <div class="option2btn hidden_box1_2_2">
+              <input type="checkbox" id="label1_2_2"/>
+              <label class="label1_1_2" for="label1_2_2">頭頂部(つむじ付近)</label>
+            </div>
+            <div class="option2btn hidden_box1_2_3">
+              <input type="checkbox" id="label1_2_3"/>
+              <label class="label1_2_3">その他
+                <input class="fa2" type="text" placeholder="例) 全体的に密度が減ってきた">
+              </label>
+            </div>
+          </div>
+        </div>
+        
+        <!-- <div class="label1_3"> -->
+          <input type="checkbox" id="label1_3"/>
+          <label class="label1_3" for="label1_3">変わらない</label>
+        <!-- </div> -->
+      </div>
+
+      <div>
+        <button type="submit" value="内容を確認する" class="form_btn faq_next" id="submit" onclick="location.href='https://berryhack.sakura.ne.jp/nuedev/mypage_faq02_v2.html'" disabled="disabled">
+          次へ<span class="material-icons">navigate_next</span>
+        </button>
+      </div>
+</div>
+
+
+    <!-- /.footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <img src="./img/logo.svg" alt="NUE">
+      </div>
+      <div class="footer-menu">
+        <ul class="footer-link-menu">
+          <li><a href="/products/">products</a>
+            <ul>
+            <li><a href="#">SawPalmetto</a></li>
+            <li><a href="#">Lysine/Vitamine</a></li>
+            </ul>
+          </li>
+          <li><a href="#">selfcheck</a></li>
+          <li><a href="#">faq</a></li>
+          <div class="footer-sns">
+            <a href="#"><img class="sns_logo Instagram" src="img/glyph-logo_May2016.png" alt="Instagram"></a>
+          </div>
+      </ul>
+      </div>
+      <div class="footer-menu">
+        <ul class="footer-link-info">
+          <li><a href="/recruit/">会社概要</a></li>
+          <li><a href="/company/">プライバシーポリシー</a></li>
+          <li><a href="/policy/">特定商品取引法による表示</a></li>
+          <li><a href="/privacy/">キャンセルポリシー</a></li>
+          <li><a href="/policy/">返金ポリシー</a></li>
+          <li><a href="/privacy/">利用規約</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="footer-copyright"><small>Copyright 2022 NUE All Rights</small></p>
+    <p class="footer-pagetop"><a href="#top">ページの先頭へ戻る</a></p>
+  </footer>
+
+  <!--** 以下Firebase **-->
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-app.js";
+    import { getDatabase, ref, push, set, onChildAdded, remove, update, child, onChildRemoved, onChildChanged } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-database.js";
+    import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-auth.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyA3Y9gkPcum9HERqjHFzmNhg-CVSeFT0Q0",
+        authDomain: "nues-4e350.firebaseapp.com",
+        databaseURL: "https://nues-4e350-default-rtdb.firebaseio.com",
+        storageBucket: 'gs://nues-4e350.appspot.com/',
+        projectId: "nues-4e350",
+        storageBucket: "gs://nues-4e350.appspot.com",
+        messagingSenderId: "236945135818",
+        appId: "1:236945135818:web:abf3092b0a2942827afc33"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+    // const dbRef = ref(db,"chat");
+    // console.log(dbRef);
+
+  
+    //###############################################
+    //GoogleAuth用
+    //###############################################
+    const provider = new GoogleAuthProvider();
+    provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
+    const auth = getAuth();
+  
+  //###############################################
+  // Loginしてる？
+  //###############################################
+  let uid = "";
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+        // User is signed in, see docs for a list of available properties
+        // https://firebase.google.com/docs/reference/js/firebase.User
+        const uid = user.uid;
+        console.log(user);
+                // const user = auth.currentUser;
+                if (user !== null) {
+                    user.providerData.forEach((profile) => {
+                        console.log("Sign-in provider: " + profile.providerId);
+                        console.log("  Provider-specific UID: " + profile.uid);
+                        console.log("  Name: " + profile.displayName);
+                        console.log("  Email: " + profile.email);
+                        console.log("  Photo URL: " + profile.photoURL);
+                    });
+                    document.querySelector('body').setAttribute('id',uid);
+                }
+    } else {
+        _redirect();  // User is signed out
+    }
+  });
+
+  
+  //###############################################
+  //Logout処理
+  //###############################################
+  $("#out").on("click", function () {
+    // signInWithRedirect(auth, provider);ß
+    signOut(auth).then(() => {
+        // Sign-out successful.
+        _redirect();
+    }).catch((error) => {
+        // An error happened.
+        console.error(error);
+    });
+  });
+  
+  
+  //###############################################
+  //Login画面へ
+  //###############################################
+  function _redirect(){
+    location.href="https://berryhack.sakura.ne.jp/chatapp/";
+  }
+  
+    // 送信イベント
+    $("#submit").on("click", function(){
+        const ymd = new Date();
+        const dayname = ['日','月','火','水','木','金','土'];
+  // console.log(year + '年' + month + '月' + day + '日' + '[' + dayname[dayofweek] + ']' + hour + '時' + minute + '分' + second + '.' + millisecond + '秒');
+        const msg = {
+        q1_label1_1_1 : Boolean($("#label1_1_1").prop('checked')),
+        q1_label1_1_2 : Boolean($("#label1_1_2").prop('checked')),
+        q1_label1_1_3 : Boolean($("#label1_1_3").prop('checked')),
+        q1_label1_1_3_text : $(".fa1").val(),
+        q1_label1_2_1 : Boolean($("#label1_2_1").prop('checked')),
+        q1_label1_2_2 : Boolean($("#label1_2_2").prop('checked')),
+        q1_label1_2_3 : Boolean($("#label1_2_3").prop('checked')),
+        q1_label1_2_3_text : $(".fa2").val(),
+        q1_label1_3 : Boolean($("#label1_3").prop('checked')),
+        year : ymd.getFullYear(), 
+        month :("0"+ (ymd.getMonth()+1)).slice(-2), 
+        day : ("0"+ ymd.getDate()).slice(-2), 
+        dayofweek : ymd.getDay(), 
+        hour : ("0"+ ymd.getHours()).slice(-2), 
+        minute : ("0"+ ymd.getMinutes()).slice(-2), 
+        second : ymd.getSeconds(), 
+        millisecond : ymd.getMilliseconds(),
+        daynamejp : dayname[ymd.getDay()],
+        };
+        const uid = $('body').attr('id');
+        const dbRef = ref(db,"q01/"+uid+"/"+ymd);
+        // const newPostRef = push(dbRef); //ユニークKEYを生成
+        console.log(dbRef);
+        set(dbRef, msg);           //"chat"にユニークKEYをつけてオブジェクトデータを登録
+   });
+  </script>
+</body>
+</html>

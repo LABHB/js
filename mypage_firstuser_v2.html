@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>NUE mypage firstuser</title>
+  <meta name="description" content="NUEは、メンズヘアケアブランドです。記録管理から始めましょう。">
+  <meta name="format-detection" content="telephone=no">
+
+  <!-- favicon読込 -->
+  <link rel="shortcut icon" href="./img/favicon.png" type="image/png">
+
+  <!-- css読込 -->
+  <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+  <link rel="stylesheet" href="./css/style.css">  <!-- 共有部分の読込 -->
+  <link rel="stylesheet" href="./css/mypage_firstuser.css">
+
+  <!-- Jquery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+  <!-- Googleフォント読込【不要になったら削除】 -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <script src="./js/top.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-auth-compat.js"></script>
+  
+  <!-- フォント読込 -->
+  <link rel="stylesheet" href="https://use.typekit.net/mje6tvq.css">
+  <script type="text/javascript" src="//typesquare.com/3/tsst/script/ja/typesquare.js?628669ea81dc4fd3b384558dac1e02e5" charset="utf-8"></script>
+
+</head>
+<body>
+  <header class="header">
+    <button type="button" id="header-btn" class="header-btn" title="メニュー開閉"><span></span></button>
+    <h1 class="header-logo"><img src="./img/logo.svg" alt="NUE_logo" width="100"></h1>
+    <div class="header-menu">
+      <a href="#"><img src="./img/cart.svg" alt="account_circle"></a>
+      <a href="#"><img src="./img/account_circle.svg" alt="account_circle"></a>
+    </div>
+    <nav class="header-gnav">
+      <ul class="header-gnav-list">
+        <li><a href="#"><span class="material-icons header-gnav-about"> home </span>about</a></li>
+        <li><a href="#"><span class="material-icons header-gnav-products">inventory_2</span>products</a></li>
+        <li><a href="#"><span class="material-icons header-gnav-selfcheck">system_security_update_good</span>self check</a></li>
+        <li><a href="#"><span class="material-icons header-gnav-faq">help_outline</span>faq</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- /.header -->
+
+  <main class="main">
+    <div class="main-title">
+      <h3> mypage </h3>
+      <h2>マイページ</h2>
+    </div>
+    <section class="rec_guide">
+      <div class="rec_guidetitle">
+        <h3>self check</h3>
+      </div>
+      <div id="r_accordion" class="r_accordion-container">
+        <h4 class="r_accordion-title r_js-accordion-title record-toggle"><img src="./img/camera.svg" alt="">写真記録</h4>
+        <div class="r_accordion-content">
+          <div class="rec_guide1">
+            <img class="selfcheck_image" src="./img/recguide/recguide1.svg" alt="selfcheck_image01">
+            <h5>頭皮の状態を記録しませんか？</h5>
+            <p>薄毛やAGAの進行状況を確認したい、現在の治療が自分に合っているのか知りたい、そんな方におすすめなのがオンラインでの頭皮状況記録です。頭皮の状況比較を無料で行えます。</p>
+            <a href="https://berryhack.sakura.ne.jp/nuedev/mypage_record07.html" class="btn-rec withalert">記録する<span class="material-icons">navigate_next</span></a>
+            <p class="alart">※撮影した髪の写真から個人を特定されることはありません。</p>
+          </div>
+          <div class="rec_guide2">
+            <img class="selfcheck_image" src="./img/recguide/recguide2.svg" alt="selfcheck_image02">
+            <h5>いつでもどこでもできる</h5>
+            <p>スマホでいつでもどこでも無料で頭皮の状況を記録することができます。後から過去の画像と比較することが可能です。</p>
+          </div>
+          <div class="rec_guide3">
+            <img class="selfcheck_image" src="./img/recguide/recguide3.svg" alt="selfcheck_image03">
+            <h5>無料で本格的なヘアチェックができる</h5>
+            <p>スマホでいつでもどこでも無料で頭皮の状況を記録することができます。後から過去の画像と比較することが可能です。</p>
+          </div>
+          <div class="rec_guide4">
+            <img class="selfcheck_image" src="./img/recguide/recguide4.svg" alt="selfcheck_image04">
+            <h5>薄毛が進行しているかどうかって正確に把握できていますか？</h5>
+            <p>スマホでいつでもどこでも無料で頭皮の状況を記録することができます。後から過去の画像と比較することが可能です。</p>
+            <a href="https://berryhack.sakura.ne.jp/nuedev/mypage_record07.html" class="btn-rec02">記録する<span class="material-icons">navigate_next</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  <!-- /お客様情報パート -->
+  <div class="accountinfo">
+    <div class="accountinfotitle">
+      <h3>お客様情報</h3>
+    </div>
+    <div class="accountinfocontent">
+      <h4> <a href="#"><img src="./img/account_circle.svg" alt="">会員情報</a></h4>
+    </div>
+  </div>
+<!-- /サポートパート -->
+  <div class="support">
+    <div class="supporttitle">
+      <h3 >サポート</h3>
+    </div>
+    <div class="supportcontent">
+      <h4> <a href="#"><img src="./img/mail.svg" alt="">お問合せ</a></h4><!-- ファイル置換【不要になったら削除】 --><!-- リンク付与 -->
+      <h4> <a href="#"><img src="./img/faq.svg" alt="">よくあるご質問</a></h4><!-- ファイル置換【不要になったら削除】 --><!-- リンク付与 -->
+      <h4> <a href="#"><img src="./img/withdrawal.svg" alt="">退会手続き</a></h4><!-- ファイル置換【不要になったら削除】 --><!-- リンク付与 -->
+    </div>
+  </div>
+
+  </main>
+  <!-- /.footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <img src="./img/logo.svg" alt="NUE">
+      </div>
+      <div class="footer-menu">
+        <ul class="footer-link-menu">
+          <li><a href="/products/">products</a>
+            <ul>
+            <li><a href="#">SawPalmetto</a></li>
+            <li><a href="#">Lysine/Vitamine</a></li>
+            </ul>
+          </li>
+          <li><a href="#">selfcheck</a></li>
+          <li><a href="#">faq</a></li>
+          <div class="footer-sns">
+            <a href="#"><img class="sns_logo Instagram" src="img/glyph-logo_May2016.png" alt="Instagram"></a>
+          </div>
+      </ul>
+      </div>
+      <div class="footer-menu">
+        <ul class="footer-link-info">
+          <li><a href="/recruit/">会社概要</a></li>
+          <li><a href="/company/">プライバシーポリシー</a></li>
+          <li><a href="/policy/">特定商品取引法による表示</a></li>
+          <li><a href="/privacy/">キャンセルポリシー</a></li>
+          <li><a href="/policy/">返金ポリシー</a></li>
+          <li><a href="/privacy/">利用規約</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="footer-copyright"><small>Copyright 2022 NUE All Rights</small></p>
+    <p class="footer-pagetop"><a href="#top">ページの先頭へ戻る</a></p>
+  </footer>
+
+
+  <!--** 以下Firebase **-->
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-app.js";
+  import { getDatabase, ref, push, set, onChildAdded, remove, update, child, onChildRemoved, onChildChanged } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-database.js";
+  import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-auth.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyA3Y9gkPcum9HERqjHFzmNhg-CVSeFT0Q0",
+      authDomain: "nues-4e350.firebaseapp.com",
+      databaseURL: "https://nues-4e350-default-rtdb.firebaseio.com",
+      storageBucket: 'gs://nues-4e350.appspot.com/',
+      projectId: "nues-4e350",
+      storageBucket: "gs://nues-4e350.appspot.com",
+      messagingSenderId: "236945135818",
+      appId: "1:236945135818:web:abf3092b0a2942827afc33"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const db = getDatabase(app);
+  // const dbRef = ref(db,"chat");
+  // console.log(dbRef);
+
+  const dbRef1 = ref(db,"users");
+  const dbRef2 = ref(db,"rooms");
+  const dbRef3 = ref(db,"messages");
+
+  //###############################################
+  //GoogleAuth用
+  //###############################################
+  const provider = new GoogleAuthProvider();
+  provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
+  const auth = getAuth();
+
+//###############################################
+// Loginしてる？
+//###############################################
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+      // User is signed in, see docs for a list of available properties
+      // https://firebase.google.com/docs/reference/js/firebase.User
+      const uid = user.uid;
+      console.log(user);
+              // const user = auth.currentUser;
+              if (user !== null) {
+                  user.providerData.forEach((profile) => {
+                      console.log("Sign-in provider: " + profile.providerId);
+                      console.log("  Provider-specific UID: " + profile.uid);
+                      console.log("  Name: " + profile.displayName);
+                      console.log("  Email: " + profile.email);
+                      console.log("  Photo URL: " + profile.photoURL);
+                  });
+                  document.getElementById('output').classList.add(uid);
+              }
+  } else {
+      _redirect();  // User is signed out
+  }
+});
+
+
+//###############################################
+//Logout処理
+//###############################################
+$("#out").on("click", function () {
+  // signInWithRedirect(auth, provider);ß
+  signOut(auth).then(() => {
+      // Sign-out successful.
+      _redirect();
+  }).catch((error) => {
+      // An error happened.
+      console.error(error);
+  });
+});
+
+
+//###############################################
+//Login画面へ
+//###############################################
+function _redirect(){
+  location.href="https://berryhack.sakura.ne.jp/chatapp/";
+}
+
+  // 送信イベント
+  $("#send").on("click", function(){
+      const ymd = new Date();
+      const dayname = ['日','月','火','水','木','金','土'];
+// console.log(year + '年' + month + '月' + day + '日' + '[' + dayname[dayofweek] + ']' + hour + '時' + minute + '分' + second + '.' + millisecond + '秒');
+
+      const msg = {
+      user : $("#uname").val(),
+      text : $("#text").val(),
+      year : ymd.getFullYear(), 
+      month :("0"+ (ymd.getMonth()+1)).slice(-2), 
+      day : ("0"+ ymd.getDate()).slice(-2), 
+      dayofweek : ymd.getDay(), 
+      hour : ("0"+ ymd.getHours()).slice(-2), 
+      minute : ("0"+ ymd.getMinutes()).slice(-2), 
+      second : ymd.getSeconds(), 
+      millisecond : ymd.getMilliseconds(),
+      daynamejp : dayname[ymd.getDay()],
+      };
+      const room = $("#room").val();
+      const dbRef4 = ref(db,"messages/"+room);
+      const newPostRef = push(dbRef4); //ユニークKEYを生成
+      console.log(newPostRef);
+      set(newPostRef, msg);           //"chat"にユニークKEYをつけてオブジェクトデータを登録
+ });
+
+  // 受信イベント
+  const dbRef5 = ref(db,"messages/room001");
+  onChildAdded(dbRef5, function(data){
+      const msg = data.val();
+      const key = data.key;
+      let h = '<div class="newmessage ';
+          h += key;
+          h += ' ';
+          h += msg.uname;
+          h += '"><p>';
+          h += msg.year + '年';
+          h += msg.month + '月';
+          h += msg.day + '日';
+          h += '(' + msg.daynamejp + ')';
+          h += msg.hour + '時' + msg.minute + '分';
+          h += '<button class="'
+          h += 'del btn btn-outline-secondary';
+          h += '">';
+          h += '削除';
+          h += '</button>';
+          h += '<button class="'
+          h += 'edit btn btn-outline-primary"';
+          h += '">';
+          h += '編集';
+          h += '</button>';
+          h += '<span class="key">';
+          h += key;
+          h += '</span>';
+          h += '<span class="user">';
+          h += msg.uname;
+          h += '</span>';
+          h += '<br>';
+          h += iconimages[msg.uname];
+          h += '<br>';
+          h += '<div class="messagetext">';
+          h += msg.text;
+          h += '</div>';
+          h += '</p></div>';
+      $("#output").append(h);
+      $("#output").scrollTop = $("#output").get(0).scrollHeight;
+      document.querySelector("#output").scrollTop = document.querySelector("#output").scrollHeight;
+  });
+    // 受信イベント(output2)
+    const dbRef6 = ref(db,"messages/room002");
+    onChildAdded(dbRef6, function(data){
+      const msg = data.val();
+      const key = data.key;
+      let h = '<div class="newmessage ';
+          h += key;
+          h += ' ';
+          h += msg.uname;
+          h += '"><p>';
+          h += msg.year + '年';
+          h += msg.month + '月';
+          h += msg.day + '日';
+          h += '(' + msg.daynamejp + ')';
+          h += msg.hour + '時' + msg.minute + '分';
+          h += '<button class="'
+          h += 'del btn btn-outline-secondary';
+          h += '">';
+          h += '削除';
+          h += '</button>';
+          h += '<button class="'
+          h += 'edit btn btn-outline-primary"';
+          h += '">';
+          h += '編集';
+          h += '</button>';
+          h += '<span class="key">';
+          h += key;
+          h += '</span>';
+          h += '<span class="user">';
+          h += msg.uname;
+          h += '</span>';
+          h += '<br>';
+          h += iconimages[msg.uname];
+          h += '<br>';
+          h += '<div class="messagetext">';
+          h += msg.text;
+          h += '</div>';
+          h += '</p></div>';
+      $("#output2").append(h);
+      $("#output2").scrollTop = $("#output").get(0).scrollHeight;
+      document.querySelector("#output").scrollTop = document.querySelector("#output").scrollHeight;
+  });
+
+  // 削除イベント（改良バージョン）
+  $("#output").on("click", ".del", function () {
+      const deletekey = $(this).siblings(".key").html();
+      const dbRef = ref(db,"messages/room001/"+deletekey);
+      set(dbRef, null);
+  });
+  onChildRemoved(dbRef5, function(data){
+      const msg = data.val();
+      const key = data.key;
+      $("."+key).remove();
+  });
+
+  // 削除イベント（改良バージョン）
+    $("#output2").on("click", ".del", function () {
+      const deletekey = $(this).siblings(".key").html();
+      const dbRef = ref(db,"messages/room002/"+deletekey);
+      set(dbRef, null);
+  });
+  onChildRemoved(dbRef6, function(data){
+      const msg = data.val();
+      const key = data.key;
+      $("."+key).remove();
+  });
+
+  // 編集(メッセージ)開始イベント
+  $("#output").on("click", ".edit", function () {
+      $(this).text("編集中");
+      $(this).addClass("editing");
+      $(this).removeClass("edit");
+      $(this).closest("p").siblings(".messagetext").attr('contenteditable','true');
+      const editkey = $(this).siblings(".key").html();
+      console.log(editkey);
+  });
+
+  // 編集(メッセージ)完了イベント
+  $("#output").on("click", ".editing", function () {
+      $(this).text("編集");
+      $(this).addClass("edit");
+      $(this).removeClass("editing");
+      $(this).closest("p").siblings(".messagetext").attr('contenteditable','false');
+      const editkey = $(this).siblings(".key").html();
+      console.log(editkey);
+      const edittext = $(this).closest("p").siblings(".messagetext").html();
+      console.log(edittext);
+      // この後にデータを指定して、update()
+      const dbRef = ref(db,"messages/room001/"+editkey);
+      update(dbRef, {text:edittext});
+  });
+
+  // 変更受信イベント
+  onChildChanged(dbRef5, function(data){
+      const msg = data.val();
+      const key = data.key;
+      console.log(key);
+      $("."+key+" .messagetext").text(msg.text);
+  });
+
+  // 編集(メッセージ)開始イベント
+    $("#output2").on("click", ".edit", function () {
+      $(this).text("編集中");
+      $(this).addClass("editing");
+      $(this).removeClass("edit");
+      $(this).closest("p").siblings(".messagetext").attr('contenteditable','true');
+      const editkey = $(this).siblings(".key").html();
+      console.log(editkey);
+  });
+
+  // 編集(メッセージ)完了イベント
+  $("#output2").on("click", ".editing", function () {
+      $(this).text("編集");
+      $(this).addClass("edit");
+      $(this).removeClass("editing");
+      $(this).closest("p").siblings(".messagetext").attr('contenteditable','false');
+      const editkey = $(this).siblings(".key").html();
+      console.log(editkey);
+      const edittext = $(this).closest("p").siblings(".messagetext").html();
+      console.log(edittext);
+      // この後にデータを指定して、update()
+      const dbRef = ref(db,"messages/room002"+editkey);
+      update(dbRef, {text:edittext});
+  });
+
+  // 変更受信イベント
+  onChildChanged(dbRef6, function(data){
+      const msg = data.val();
+      const key = data.key;
+      console.log(key);
+      $("."+key+" .messagetext").text(msg.text);
+  });
+  // インプットイベント後ほど削除
+  $("#text").on("keydown", function(e){
+      console.log(e);
+  });
+
+</script>
+</body>
+</html>
+

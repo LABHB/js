@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Welcome to Firebase Hosting</title>
+
+    <style media="screen">
+      body { background: #EBE2D6; color: #6A4E4E; font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
+      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
+      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
+      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
+      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
+      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
+      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
+      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
+      @media (max-width: 600px) {
+        body, #message { margin-top: 0; background: white; box-shadow: none; }
+        body { border-top: 16px solid #ffa100; }
+      }
+    </style>
+      <style>
+        canvas, video{
+          border: 1px solid gray;
+        }
+      </style>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-storage.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+
+  <script>
+   // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyA3Y9gkPcum9HERqjHFzmNhg-CVSeFT0Q0",
+      authDomain: "nues-4e350.firebaseapp.com",
+      databaseURL: "https://nues-4e350-default-rtdb.firebaseio.com",
+      storageBucket: 'gs://nues-4e350.appspot.com/',
+      projectId: "nues-4e350",
+      storageBucket: "gs://nues-4e350.appspot.com",
+      messagingSenderId: "236945135818",
+      appId: "1:236945135818:web:abf3092b0a2942827afc33"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
+  </head>
+  <body>
+
+    <h1>記録撮影</h1>
+
+<video id="camera" width="300" height="200"></video>
+<canvas id="picture" width="300" height="200"></canvas>
+<form>
+  <button type="button" id="shutter">シャッター</button>
+  <button type="button" id="upload">この画像を使う</button>
+  <button type="button" id="next"> <a href="https://berryhack.sakura.ne.jp/nuedev/mypage_faq01_v3.html">続けて質問に答える</a></button>
+</form>
+<div id="message">
+  <input type="file" id="file" />
+  <button id="up" type="button">アップする</button>
+</div>
+
+<audio id="se" preload="auto">
+  <source src="camera-shutter1.mp3" type="audio/mp3">
+</audio>
+
+
+    <script>
+    document.getElementById('up').addEventListener('click', function(){
+        var files = document.getElementById('file').files;
+        var image = files[0];
+
+        var ref = firebase.storage().ref().child(image.name);
+        ref.put(image).then(function(snapshot) {
+          alert('アップロードしました');
+        });
+      });
+    </script>
+    <script>
+      window.onload = () => {
+        const video  = document.querySelector("#camera");
+        const canvas = document.querySelector("#picture");
+        const se     = document.querySelector('#se');
+      
+        /** カメラ設定 */
+        const constraints = {
+          audio: false,
+          video: {
+            width: 300,
+            height: 200,
+            facingMode: "user"   // フロントカメラを利用する
+            // facingMode: { exact: "environment" }  // リアカメラを利用する場合
+          }
+        };
+      
+        /**
+         * カメラを<video>と同期
+         */
+        navigator.mediaDevices.getUserMedia(constraints)
+        .then( (stream) => {
+          video.srcObject = stream;
+          video.onloadedmetadata = (e) => {
+            video.play();
+          };
+        })
+        .catch( (err) => {
+          console.log(err.name + ": " + err.message);
+        });
+      
+        /**
+         * シャッターボタン
+         */
+         document.querySelector("#shutter").addEventListener("click", () => {
+          const ctx = canvas.getContext("2d");
+      
+          // 演出的な目的で一度映像を止めてSEを再生する
+          video.pause();  // 映像を停止
+          se.play();      // シャッター音
+          setTimeout( () => {
+            video.play();    // 0.5秒後にカメラ再開
+          }, 500);
+      
+          // canvasに画像を貼り付ける
+          ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+          this.canvas = new fabric.Canvas("canvas", {
+          isDrawingMode: false,
+          selection: false
+        });
+
+        //写真画像→DataURL→Blobに変換
+        const dataURI = canvas.toDataURL();
+        var byteString = atob( dataURI.split( "," )[1] ) ;
+        var mimeType = dataURI.match( /(:)([a-z\/]+)(;)/ )[2] ;
+        for( var i=0, l=byteString.length, content=new Uint8Array( l ); l>i; i++ ) {
+        content[i] = byteString.charCodeAt( i ) ;
+      }
+        var blob = new Blob( [ content ], {
+          type: mimeType ,
+        } ) ;
+        const uid = $('body').attr('id');
+        var file = new File([blob], "top"+uid);
+        var a = window.URL.createObjectURL( blob ) ;
+        console.log(a);//写真画像→DataURL→Blob（リンク形式）に変換
+        console.log(file);//写真画像→DataURL→Blob→File形式に変換
+
+        
+        document.getElementById('upload').addEventListener('click', function(){
+            var ref = firebase.storage().ref().child(file.name);
+            ref.put(file).then(function(snapshot) {
+              alert('アップロードしました');
+            });
+          });
+        });
+      };
+
+
+      </script>
+  <!--** 以下Firebase **-->
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-app.js";
+    import { getDatabase, ref, push, set, onChildAdded, remove, update, child, onChildRemoved, onChildChanged } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-database.js";
+    import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-auth.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyA3Y9gkPcum9HERqjHFzmNhg-CVSeFT0Q0",
+        authDomain: "nues-4e350.firebaseapp.com",
+        databaseURL: "https://nues-4e350-default-rtdb.firebaseio.com",
+        storageBucket: 'gs://nues-4e350.appspot.com/',
+        projectId: "nues-4e350",
+        storageBucket: "gs://nues-4e350.appspot.com",
+        messagingSenderId: "236945135818",
+        appId: "1:236945135818:web:abf3092b0a2942827afc33"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+    // const dbRef = ref(db,"chat");
+    // console.log(dbRef);
+
+  
+    //###############################################
+    //GoogleAuth用
+    //###############################################
+    const provider = new GoogleAuthProvider();
+    provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
+    const auth = getAuth();
+  
+  //###############################################
+  // Loginしてる？
+  //###############################################
+  let uid = "";
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+        // User is signed in, see docs for a list of available properties
+        // https://firebase.google.com/docs/reference/js/firebase.User
+        const uid = user.uid;
+        console.log(user);
+                // const user = auth.currentUser;
+                if (user !== null) {
+                    user.providerData.forEach((profile) => {
+                        console.log("Sign-in provider: " + profile.providerId);
+                        console.log("  Provider-specific UID: " + profile.uid);
+                        console.log("  Name: " + profile.displayName);
+                        console.log("  Email: " + profile.email);
+                        console.log("  Photo URL: " + profile.photoURL);
+                    });
+                    document.querySelector('body').setAttribute('id',uid);
+                }
+    } else {
+        _redirect();  // User is signed out
+    }
+  });
+
+  
+  //###############################################
+  //Logout処理
+  //###############################################
+  $("#out").on("click", function () {
+    // signInWithRedirect(auth, provider);ß
+    signOut(auth).then(() => {
+        // Sign-out successful.
+        _redirect();
+    }).catch((error) => {
+        // An error happened.
+        console.error(error);
+    });
+  });
+  
+  
+  //###############################################
+  //Login画面へ
+  //###############################################
+  function _redirect(){
+    location.href="https://berryhack.sakura.ne.jp/chatapp/";
+  }
+
+  </script>
+<script src="./js/fabric.min.js"></script>
+  </body>
+  
+</html>
