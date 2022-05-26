@@ -1,0 +1,581 @@
+// variables
+//--------------------
+$breakpoints: (
+  'sm-min': 'screen and (min-width: 576px)',
+  'sm-max': 'screen and (max-width: 575px)',
+  'md-min': 'screen and (min-width: 768px)',
+  'md-max': 'screen and (max-width: 767px)',
+  'lg-min': 'screen and (min-width: 992px)',
+  'lg-max': 'screen and (max-width: 991px)',
+  'xl-min': 'screen and (min-width: 1131px)',
+  'xl-max': 'screen and (max-width: 1130px)',
+);
+@mixin mq($breakpoint: md-min) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
+
+$c_black : #333;
+$c_green : #459209;
+$c_yellow : #efdd34;
+$c_beige : #efe1c5;
+$c_brown : #3C3526;
+$c_bg : #FAF7F2;
+$m-width : 1200px;
+$c_header : #F1F0EA;
+$c_browntext : #BFB7A7;
+$c_content_bg : #EFEAE4;
+$c_btn_brown :#3C3526;
+$c_footer_bg : #C1B6A1;
+
+.material-icons{
+  display: inline-flex;
+  vertical-align: middle;
+  padding-right: 5px;
+  }
+
+// common
+body {
+  font-family: 'itc-avant-garde-gothic-pro','Midashi Go MB31';/* モリサワフォント読み込めていないので、要改修（クラウド９で作業？） */
+  font-size: 14px;
+  line-height: 1.8;
+  letter-spacing: 0.05em;
+  color: $c_black;
+  background-color: $c_bg;
+}
+a {
+  color: $c_black;
+  text-decoration: none;
+}
+img {
+  max-width: 100%;
+  vertical-align: bottom;
+}
+ul {
+  list-style: none;
+}
+
+/* ボタン関係 */
+.btn-rec-new {
+  font-size: 18px;
+  font-weight: normal;
+  color: #FFFFFF ;
+  text-align: center;
+  display: block;
+  position: relative;
+  max-width: 300px;
+  height: 60px;
+  margin: 32px auto 0px;
+  padding: 12px 0;
+  background:$c_btn_brown;
+  transition: all .3s;
+  @include mq(md-min) {
+    width: 250px;
+  }
+  span {
+    position: absolute;
+    top: 50%;
+    right: 6px;
+    margin-top: -15px;
+    font-size: 30px;
+  }
+  &:hover {
+    background:$c_beige;
+    border-color: $c_beige;
+  }
+}
+
+.btn-rec02 {
+  font-size: 18px;
+  font-weight: normal;
+  color: #FFFFFF ;
+  text-align: center;
+  display: block;
+  position: relative;
+  max-width: 300px;
+  height: 60px;
+  margin: 32px auto 48px;
+  padding: 12px 0;
+  background:$c_btn_brown;
+  transition: all .3s;
+  @include mq(md-min) {
+    width: 250px;
+  }
+  span {
+    position: absolute;
+    top: 50%;
+    right: 6px;
+    margin-top: -15px;
+    font-size: 30px;
+  }
+  &:hover {
+    background:$c_beige;
+    border-color: $c_beige;
+  }
+}
+
+.btn-compare {
+  font-size: 18px;
+  font-weight: normal;
+  color: #3C3526;
+  text-align: center;
+  display: block;
+  position: relative;
+  max-width: 300px;
+  margin: 20px auto 48px;
+  padding: 12px 0;
+  background: #FFFFFF;
+  border: 2px solid #3C3526;
+  transition: all .3s;
+  @include mq(md-min) {
+    width: 250px;
+  }
+  span {
+    position: absolute;
+    top: 50%;
+    right: 6px;
+    margin-top: -15px;
+    font-size: 30px;
+  }
+  &:hover {
+    color:$c_beige;
+    border-color: $c_beige;
+  }
+}
+
+.btn-more-text {
+  font-size: 16px;
+  font-weight: normal;
+  color: #363636;
+  text-align: end;
+  display: block;
+  position: relative;
+  max-width: 400px;
+  margin: 5px;
+  padding: 4px 0;
+  transition: all .3s;
+  @include mq(md-min) {
+    width: 250px;
+  }
+  span {
+    position: absolute;
+    top: 50%;
+    right: -35px;
+    margin-top: -15px;// 真ん中に表示されるために、フォントサイズの半分に設定
+    font-size: 30px;
+    color: #3C3526;
+  }
+  &:hover {
+    color: $c_beige;
+    border-color: $c_beige;
+  }
+}
+
+//header--------------------
+.header {
+  display: grid;
+  grid-template-columns: 1fr 90px 1fr;
+  grid-template-areas: ". logo .";
+  align-items: center;
+  margin: 0 auto;
+  padding: 25px 16px;
+  position: fixed;// 上部固定表示
+  left: 0;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  height: 80px;
+  background-color: $c_header;
+  border-bottom: 1px solid $c_black;
+}
+
+.header-logo {
+  grid-area: logo;
+  margin: auto;
+  line-height: 1;
+}
+.header-menu {
+  text-align: end;;
+  a {
+    margin: 0 4px;
+  }
+}
+
+.header-btn {
+  width: 32px;
+  height: 20px;
+  padding-right: 5px;
+  background: none;
+  display: block;
+  z-index: 500;
+  span {
+    position: relative;
+    display: block;
+    height: 2px;
+    background: none; // 2本線で表示
+    transition: all .3s;
+    &::before,
+    &::after {
+      position: absolute;
+      left: 0;
+      content: "";
+      display: block;
+      width: 100%;
+      height: 1px; // 細線で表示
+      background: $c_black;
+      transition: all .3s;
+    }
+    &::before {
+      top: -3px;// 細幅調整
+    }
+    &::after {
+      bottom: -3px;// 細幅調整
+    }
+  }
+}
+.header-gnav {
+  margin-top: 80px;
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: -100%;
+  transition: all .5s;
+  background-color: #fff;
+}
+.header-gnav-list {
+  border-top: 1px solid $c_beige;
+  a {
+    display: flex;
+    font-weight: bold;
+    align-items: center;
+    padding: 8px 24px;
+    font-size: 18px;
+    border-bottom: 1px solid $c_beige;
+    span {
+      font-size: 22px;
+      color: $c_brown;
+      margin-right: 8px;
+      &.header-gnav-access {
+        font-size: 24px;
+      }
+    }
+  }
+  @include mq(md-min) {
+    display: flex;
+    margin: 20px 50px;
+    justify-content: space-around;
+    border: none;
+    a {
+      border: none;
+      margin-left: 16px;
+      padding: 5px;
+    }
+  }
+}
+
+// open
+//--------------------
+.is-openMenu {
+  .header-btn {
+    span {
+      background: transparent;
+      &::before {
+        top: 0;
+        transform: rotate(45deg);
+      }
+      &::after {
+        top: 0;
+        transform: rotate(-45deg);
+      }
+    }
+  }
+  .header-gnav {
+    left: 0;
+  }
+}
+
+//main
+//--------------------
+.main {
+  margin-top: 80px;
+  @include mq(md-min) {
+    margin-top: 80px;//PCデザイン変更時に調整
+  }
+  .main-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    text-align: center;
+    width: auto;
+    height: 120px;
+    padding: 65px 0 30px;
+    background-color: $c_bg;
+    h3 {
+      display: block;
+      width: 100%;
+      color: $c_browntext;
+      font-size: 14px;
+      font-weight: normal;
+    }
+    h2 {
+      display: block;
+      width: 100%;
+      color: $c_black;
+      font-size: 22px;
+      font-weight: normal;
+    }
+  }
+  .rec_guidetitle {//全体的に字間がXDデータと異なるので、要確認
+    display: flex;
+    height: 50px;
+    padding: 0 20px;
+    align-items: center;
+    background-color: $c_bg;
+    h3 {
+      color: $c_browntext;
+      font-size: 14px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+  }
+  .r_accordion-content {
+    padding: 40px 30px;
+    background-color:$c_content_bg;
+    .r_record-date{
+      margin: 5px 0;
+    }
+    .latest-record {
+      background-color: #8B806C;
+      display: inline-block;
+      width: 70px;
+      color: white;
+      border-radius: 15px;
+      font-size: 12px;
+      padding: 2px 3px;
+      margin: 2px 10px 2px 0px;
+      text-align: center;
+    }
+  }
+
+  .record-picture-1 {
+    display: flex;
+    justify-content: space-between;
+    .record-picture-1-1 {
+      width: 50%;
+      display: flex;
+      flex-grow: 1;
+      border-right: 1px dashed $c_black;
+      #imgSample {
+        width: 200px;
+        height: 200px;
+        margin: 0 auto;
+        display:block;
+        width:90%;
+        background-color:#c0c0c0;
+      }
+    }
+    .record-picture-1-2 {
+      width: 50%;
+      display: flex;
+      flex-grow: 1;
+      #imgSample2 {
+        width: 200px;
+        height: 200px;
+        margin: 0 auto;
+        display:block;
+        width:90%;
+        background-color:#c0c0c0;
+      }
+    }
+  }
+  .record-class {
+    font-size: 14px;
+    margin: 5px;
+  }
+  .record-btn-more {
+    display: flex;
+    justify-content: end;
+    margin: 5px 20px;
+  }
+
+}
+
+//写真記録パートのアコーディオン部分 record_accordion--------------------
+.r_accordion-container .r_accordion-title {
+  position: relative;
+  margin: 0;
+  padding: 1em 0.625em 1em 2em;
+  background-color: white;
+  border-top: 1px solid #C1B6A1;
+  border-bottom: 1px solid #C1B6A1;
+  font-size: 12px;
+  font-weight: normal;
+  color:#3C3526;
+  cursor: pointer;
+  img{
+    margin-right: 15px;
+    vertical-align: middle;
+    width: 20px;
+  }
+}
+
+.r_accordion-container .r_moreinfo{//どこのこと？【不要であれば削除】
+  text-align: end;
+  margin-right: 40px;
+}
+
+.r_accordion-title.open { 
+  background-color: white;
+}
+.r_accordion-container .r_accordion-title:hover,
+.r_accordion-container .r_accordion-title:active { 
+  background-color: $c_content_bg;
+}
+
+.r_accordion-title:after {
+  content: "";
+  position: absolute;
+  right: 25px;
+  top: 38%;
+  transition: all 0.2s ease-in-out;
+  display: block;
+  width: 12px;
+  height: 12px;
+  border-top: solid 2px #3C3526;
+  border-right: solid 2px #3C3526;
+  -webkit-transform: rotate(135deg);
+  transform: rotate(135deg);
+}
+
+.r_accordion-title.open:after {
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  top: 45%;
+}
+
+// accountinfo
+.accountinfo {
+  margin-top: 45px;
+  background-color: $c_bg;
+  color: $c_browntext;
+}
+.accountinfotitle {
+  display: flex;
+  height: 50px;
+  padding: 0 20px;
+  align-items: center;
+  h3 {
+    font-weight: normal;
+  }
+  h4 {
+    font-size: 12px;
+  }
+}
+.accountinfocontent {
+  padding: 1em 0.625em 1em 2em;
+  background-color: white;
+  border-top: 1px solid #C1B6A1;
+  border-bottom: 1px solid #C1B6A1;
+  a {
+    color:#3C3526;
+    font-weight: 100;
+    img{
+      margin-right: 15px;
+    }
+  }
+}
+// support
+.support {
+  margin-top: 45px;
+  background-color: $c_bg;
+  color: $c_browntext;
+}
+.supporttitle {
+  display: flex;
+  height: 50px;
+  padding: 0 20px;
+  align-items: center;
+  h3 {
+    font-weight: normal;
+  }
+  h4 {
+    font-size: 12px;
+  }
+}
+.supportcontent{
+  h4{
+    padding: 1em 0.625em 1em 2em;
+    background-color: white;
+    border-bottom: 1px solid #C1B6A1;
+    a {
+      color:#3C3526;
+      font-weight: 100;
+      img{
+        margin-right: 15px;
+        vertical-align: middle;
+        width: 20px;
+      }
+    }
+    &:first-child{
+      border-top: 1px solid #C1B6A1;
+    }
+  }
+}
+
+//footer
+//--------------------
+.footer {
+  text-align: center;
+  padding: 4px 0;
+  margin-top: 64px;
+  background-color: $c_footer_bg;
+  @include mq(md-min) {
+    margin-top: 96px;
+  }
+  .footer-logo{
+    margin: 60px auto;
+    img{
+      width: 150px;
+      object-fit: cover;
+    }
+  }
+  .footer-link-menu {
+    width: 300px;
+    margin: 60px auto;
+    & > li {
+      text-align: start;
+      font-size: 24px;
+      text-transform: uppercase;
+      margin: 20px 0;
+      & > ul {
+        text-align: start;
+        font-size:12px;
+        margin:10px 20px;
+      }
+    }
+  }
+  .footer-sns {
+    text-align: start;
+    .sns_logo{
+      width: 30px;
+    }
+  }
+  .footer-link-info {
+    width: 300px;
+    margin: 30px auto;
+    text-align: start;
+    font-size: 10px;
+    & > li {
+      text-align: start;
+      margin: 10px 0;
+    }
+  }
+  .footer-copyright{
+    width: 300px;
+    margin: 30px auto;
+    text-align: start;
+  }
+}

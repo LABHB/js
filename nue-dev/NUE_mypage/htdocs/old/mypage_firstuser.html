@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>NUE mypage firstuser</title>
+  <meta name="description" content="NUEは、メンズヘアケアブランドです。記録管理から始めましょう。">
+  <meta name="format-detection" content="telephone=no">
+
+  <!-- favicon読込 -->
+  <link rel="shortcut icon" href="./img/favicon.png" type="image/png">
+
+  <!-- css読込 -->
+  <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+  <link rel="stylesheet" href="./css/style.css">  <!-- 共有部分の読込 -->
+  <link rel="stylesheet" href="./css/mypage_firstuser.css">
+
+  <!-- Jquery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+  <!-- Googleフォント読込【不要になったら削除】 -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <script src="./js/top.js"></script>
+  
+  <!-- フォント読込 -->
+  <link rel="stylesheet" href="https://use.typekit.net/mje6tvq.css">
+  <script type="text/javascript" src="//typesquare.com/3/tsst/script/ja/typesquare.js?628669ea81dc4fd3b384558dac1e02e5" charset="utf-8"></script>
+
+</head>
+<body>
+  <header class="header">
+    <button type="button" id="header-btn" class="header-btn" title="メニュー開閉"><span></span></button>
+    <h1 class="header-logo"><img src="./img/logo.svg" alt="NUE_logo" width="100"></h1>
+    <div class="header-menu">
+      <a href="#"><img src="./img/cart.svg" alt="account_circle"></a>
+      <a href="#"><img src="./img/account_circle.svg" alt="account_circle"></a>
+    </div>
+    <nav class="header-gnav">
+      <ul class="header-gnav-list">
+        <li><a href="#"><span class="material-icons header-gnav-about"> home </span>about</a></li>
+        <li><a href="#"><span class="material-icons header-gnav-products">inventory_2</span>products</a></li>
+        <li><a href="#"><span class="material-icons header-gnav-selfcheck">system_security_update_good</span>self check</a></li>
+        <li><a href="#"><span class="material-icons header-gnav-faq">help_outline</span>faq</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- /.header -->
+
+  <main class="main">
+    <div class="main-title">
+      <h3> mypage </h3>
+      <h2>マイページ</h2>
+    </div>
+    <section class="rec_guide">
+      <div class="rec_guidetitle">
+        <h3>self check</h3>
+      </div>
+      <div id="r_accordion" class="r_accordion-container">
+        <h4 class="r_accordion-title r_js-accordion-title record-toggle"><img src="./img/camera.svg" alt="">写真記録</h4>
+        <div class="r_accordion-content">
+          <div class="rec_guide1">
+            <img class="selfcheck_image" src="./img/recguide/recguide1.svg" alt="selfcheck_image01">
+            <h5>頭皮の状態を記録しませんか？</h5>
+            <p>薄毛やAGAの進行状況を確認したい、現在の治療が自分に合っているのか知りたい、そんな方におすすめなのがオンラインでの頭皮状況記録です。頭皮の状況比較を無料で行えます。</p>
+            <a href="#" class="btn-rec withalert">記録する<span class="material-icons">navigate_next</span></a>
+            <p class="alart">※撮影した髪の写真から個人を特定されることはありません。</p>
+          </div>
+          <div class="rec_guide2">
+            <img class="selfcheck_image" src="./img/recguide/recguide2.svg" alt="selfcheck_image02">
+            <h5>いつでもどこでもできる</h5>
+            <p>スマホでいつでもどこでも無料で頭皮の状況を記録することができます。後から過去の画像と比較することが可能です。</p>
+          </div>
+          <div class="rec_guide3">
+            <img class="selfcheck_image" src="./img/recguide/recguide3.svg" alt="selfcheck_image03">
+            <h5>無料で本格的なヘアチェックができる</h5>
+            <p>スマホでいつでもどこでも無料で頭皮の状況を記録することができます。後から過去の画像と比較することが可能です。</p>
+          </div>
+          <div class="rec_guide4">
+            <img class="selfcheck_image" src="./img/recguide/recguide4.svg" alt="selfcheck_image04">
+            <h5>薄毛が進行しているかどうかって正確に把握できていますか？</h5>
+            <p>スマホでいつでもどこでも無料で頭皮の状況を記録することができます。後から過去の画像と比較することが可能です。</p>
+            <a href="#" class="btn-rec02">記録する<span class="material-icons">navigate_next</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  <!-- /お客様情報パート -->
+  <div class="accountinfo">
+    <div class="accountinfotitle">
+      <h3>お客様情報</h3>
+    </div>
+    <div class="accountinfocontent">
+      <h4> <a href="#"><img src="./img/account_circle.svg" alt="">会員情報</a></h4>
+    </div>
+  </div>
+<!-- /サポートパート -->
+  <div class="support">
+    <div class="supporttitle">
+      <h3 >サポート</h3>
+    </div>
+    <div class="supportcontent">
+      <h4> <a href="#"><img src="./img/mail.svg" alt="">お問合せ</a></h4><!-- ファイル置換【不要になったら削除】 --><!-- リンク付与 -->
+      <h4> <a href="#"><img src="./img/faq.svg" alt="">よくあるご質問</a></h4><!-- ファイル置換【不要になったら削除】 --><!-- リンク付与 -->
+      <h4> <a href="#"><img src="./img/withdrawal.svg" alt="">退会手続き</a></h4><!-- ファイル置換【不要になったら削除】 --><!-- リンク付与 -->
+    </div>
+  </div>
+
+  </main>
+  <!-- /.footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <img src="./img/logo.svg" alt="NUE">
+      </div>
+      <div class="footer-menu">
+        <ul class="footer-link-menu">
+          <li><a href="/products/">products</a>
+            <ul>
+            <li><a href="#">SawPalmetto</a></li>
+            <li><a href="#">Lysine/Vitamine</a></li>
+            </ul>
+          </li>
+          <li><a href="#">selfcheck</a></li>
+          <li><a href="#">faq</a></li>
+          <div class="footer-sns">
+            <a href="#"><img class="sns_logo Instagram" src="img/glyph-logo_May2016.png" alt="Instagram"></a>
+          </div>
+      </ul>
+      </div>
+      <div class="footer-menu">
+        <ul class="footer-link-info">
+          <li><a href="/recruit/">会社概要</a></li>
+          <li><a href="/company/">プライバシーポリシー</a></li>
+          <li><a href="/policy/">特定商品取引法による表示</a></li>
+          <li><a href="/privacy/">キャンセルポリシー</a></li>
+          <li><a href="/policy/">返金ポリシー</a></li>
+          <li><a href="/privacy/">利用規約</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="footer-copyright"><small>Copyright 2022 NUE All Rights</small></p>
+    <p class="footer-pagetop"><a href="#top">ページの先頭へ戻る</a></p>
+  </footer>
+</body>
+</html>
+

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Camera Test</title>
+  <style>
+  canvas, video{
+    border: 1px solid gray;
+  }
+  </style>
+      <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/9.8.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.8.1/firebase-storage.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+<script>
+
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+  apiKey: "AIzaSyA3Y9gkPcum9HERqjHFzmNhg-CVSeFT0Q0",
+  authDomain: "nues-4e350.firebaseapp.com",
+  databaseURL: "https://nues-4e350-default-rtdb.firebaseio.com",
+  storageBucket: 'gs://nues-4e350.appspot.com/',
+  projectId: "nues-4e350",
+  storageBucket: "gs://nues-4e350.appspot.com",
+  messagingSenderId: "236945135818",
+  appId: "1:236945135818:web:abf3092b0a2942827afc33"
+};
+    // Initialize Firebase
+    initializeApp(firebaseConfig);
+</script>
+</head>
+<body>
+
+<h1>HTML5カメラ</h1>
+<video id="camera" width="300" height="200"></video>
+<canvas id="picture" width="300" height="200"></canvas>
+<form>
+  <button type="button" id="shutter">シャッター</button>
+</form>
+<audio id="se" preload="auto">
+  <source src="camera-shutter1.mp3" type="audio/mp3">
+</audio>
+<button type="button" id="send">保存</button>
+<script>
+window.onload = () => {
+  const video  = document.querySelector("#camera");
+  const canvas = document.querySelector("#picture");
+  const se     = document.querySelector('#se');
+  /** カメラ設定 */
+  const constraints = {
+    audio: false,
+    video: {
+      width: 300,
+      height: 200,
+      facingMode: "user"   // フロントカメラを利用する
+      // facingMode: { exact: "environment" }  // リアカメラを利用する場合
+    }
+  };
+  /**
+   * カメラを<video>と同期
+   */
+  navigator.mediaDevices.getUserMedia(constraints)
+  .then( (stream) => {
+    video.srcObject = stream;
+    video.onloadedmetadata = (e) => {
+      video.play();
+    };
+  })
+  .catch( (err) => {
+    console.log(err.name + ": " + err.message);
+  });
+  /**
+   * シャッターボタン
+   */
+   document.querySelector("#shutter").addEventListener("click", () => {
+    const ctx = canvas.getContext("2d");
+    // 演出的な目的で一度映像を止めてSEを再生する
+    video.pause();  // 映像を停止
+    se.play();      // シャッター音
+    setTimeout( () => {
+      video.play();    // 0.5秒後にカメラ再開
+    }, 500);
+    // canvasに画像を貼り付ける
+    ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+    this.canvas = new fabric.Canvas("canvas", {
+      isDrawingMode: false,
+      selection: false
+    });
+    // // const canvas = this.canvas;
+    // //video要素の中身(画像データ)をキャンバスに貼り付け
+    // canvas.contextTop.drawImage(video, 0, 0);
+    // //この後画像を加工する都合上、キャンバスに貼り付けた画像をキャンバスの背景に移す
+    // canvas.setBackgroundImage(canvas.upperCanvasEl.toDataURL(), () => {
+    //   canvas.requestRenderAll();
+    //   canvas.clearContext(canvas.contextTop);
+    // });
+
+    //写真画像→DataURL→Blobに変換
+    const dataURI = canvas.toDataURL();
+    var byteString = atob( dataURI.split( "," )[1] ) ;
+    var mimeType = dataURI.match( /(:)([a-z\/]+)(;)/ )[2] ;
+    for( var i=0, l=byteString.length, content=new Uint8Array( l ); l>i; i++ ) {
+	  content[i] = byteString.charCodeAt( i ) ;
+  }
+    var blob = new Blob( [ content ], {
+      type: mimeType ,
+    } ) ;
+    var file = new File([blob], "name");
+    var a = window.URL.createObjectURL( blob ) ;
+    console.log(a);
+    console.log(file);
+    var ref = firebase.storage().ref().child("record");
+      ref.put(file).then(function(snapshot) {
+        alert('アップロードしました');
+      });
+    // //DataURLからBlob作成
+    // const blob = this.toBlob(dataURL);
+    // //Blob形式で画像をアップロード
+    // const imageData = blob;
+    // console.log(imageData);
+  });
+};
+</script>
+<!-- <script>
+document.querySelector("#send").addEventListener("click", () => {
+  const storage = getStorage();
+  const storageRef = ref(storage, 'some-child');
+
+  // 'file' comes from the Blob or File API
+  uploadBytes(storageRef, a).then((snapshot) => {
+    console.log('Uploaded a blob or file!');
+  });
+});
+</script> -->
+<!-- <script>
+  document.getElementById('up').addEventListener('click', function(){
+      var files = document.getElementById('file').files;
+      var image = files[0];
+      console.log(image.name);
+      console.log(image);
+      var ref = firebase.storage().ref().child(image.name);
+      ref.put(image).then(function(snapshot) {
+        alert('アップロードしました');
+      });
+    });
+  </script> -->
+  <script src="./js/fabric.min.js"></script>
+</body>
+</html>
+<!-- 参考URL：https://blog.katsubemakito.net/html5/camera1 -->

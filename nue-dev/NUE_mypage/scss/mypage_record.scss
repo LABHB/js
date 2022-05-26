@@ -1,0 +1,162 @@
+// variables
+//--------------------
+$breakpoints: (
+  'sm-min': 'screen and (min-width: 576px)',
+  'sm-max': 'screen and (max-width: 575px)',
+  'md-min': 'screen and (min-width: 768px)',
+  'md-max': 'screen and (max-width: 767px)',
+  'lg-min': 'screen and (min-width: 992px)',
+  'lg-max': 'screen and (max-width: 991px)',
+  'xl-min': 'screen and (min-width: 1131px)',
+  'xl-max': 'screen and (max-width: 1130px)',
+);
+@mixin mq($breakpoint: md-min) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
+
+$c_black : #333;
+$c_green : #459209;
+$c_yellow : #efdd34;
+$c_beige : #efe1c5;
+$c_brown : #3C3526;
+$c_bg : #FAF7F2;
+$m-width : 1200px;
+$c_header : #F1F0EA;
+$c_browntext : #BFB7A7;
+$c_content_bg : #EFEAE4;
+$c_btn_brown :#3C3526;
+$c_footer_bg : #C1B6A1;
+
+.material-icons{
+  display: inline-flex;
+  vertical-align: middle;
+  padding-right: 5px;
+  }
+
+// common
+body {
+  font-family: 'itc-avant-garde-gothic-pro','Midashi Go MB31';/* モリサワフォント読み込めていないので、要改修（クラウド９で作業？） */
+  font-size: 14px;
+  line-height: 1.8;
+  letter-spacing: 0.05em;
+  color: $c_black;
+  background-color: $c_bg;
+}
+a {
+  color: $c_black;
+  text-decoration: none;
+}
+img {
+  max-width: 100%;
+  vertical-align: bottom;
+}
+ul {
+  list-style: none;
+}
+
+//main
+//--------------------
+.main {
+  margin-top: 80px;
+  @include mq(md-min) {
+    margin-top: 80px;
+  }
+  .record_back01{
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    background-color: #EBE2D6;
+    height: 60px;
+    a{
+      display: block;
+      width: 100%;
+      text-align: center;
+      color: #413A2A;
+    }
+  }
+  .main-top {
+    max-width: 350px;
+    margin: 32px auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    p {
+      display: block;
+      width: 300px;
+      margin: 0 auto 10px;
+      color: #413A2A;
+      font-size: 16px;
+    }
+    .recordimg01 {
+      width: 80%;
+      margin: 18px auto;
+    }
+    .recordimg02 {
+      width: 100%;
+      margin: 18px auto;
+    }
+    .alart {
+      font-size: 12px;
+      color: #D87474;
+      text-align: start;
+    }
+  }}
+  .btn-rec {
+    font-size: 18px;
+    font-weight: normal;
+    color: #FFFFFF ;
+    text-align: center;
+    display: block;
+    position: relative;
+    max-width: 300px;
+    height: 60px;
+    margin: 32px auto 0px;
+    padding: 12px 0;
+    background:$c_btn_brown;
+    transition: all .3s;
+    @include mq(md-min) {
+      width: 250px;
+    }
+    span {
+      position: absolute;
+      top: 50%;
+      right: 6px;
+      margin-top: -15px;
+      font-size: 30px;
+    }
+    &:hover {
+      background:$c_beige;
+      border-color: $c_beige;
+    }
+  }
+  .btn-stop {
+    font-size: 18px;
+    font-weight: normal;
+    color: #3C3526;
+    text-align: center;
+    display: block;
+    position: relative;
+    max-width: 300px;
+    margin: 20px auto 5px;
+    padding: 12px 0;
+    background: #FFFFFF;
+    border: 2px solid #3C3526;
+    transition: all .3s;
+    @include mq(md-min) {
+      width: 250px;
+    }
+    span {
+      position: absolute;
+      top: 50%;
+      right: 6px;
+      margin-top: -15px;
+      font-size: 30px;
+    }
+    &:hover {
+      color:$c_beige;
+      border-color: $c_beige;
+    }
+  }
+  

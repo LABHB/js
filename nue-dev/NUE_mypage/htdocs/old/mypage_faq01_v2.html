@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>NUE mypage faq</title>
+  <meta name="description" content="NUEは、メンズヘアケアブランドです。今の状況を教えてください。">
+  <meta name="format-detection" content="telephone=no">
+
+  <!-- favicon読込 -->
+  <link rel="shortcut icon" href="./img/favicon.png" type="image/png">
+
+  <!-- css読込 -->
+  <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+  <link rel="stylesheet" href="./css/style.css">  <!-- 共有部分の読込 -->
+  <link rel="stylesheet" href="./css/mypage_faq01_v2.css">
+
+  <!-- Jquery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+  <!-- Googleフォント読込【不要になったら削除】 -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  
+  <!-- フォント読込 -->
+  <link rel="stylesheet" href="https://use.typekit.net/mje6tvq.css">
+  <script type="text/javascript" src="//typesquare.com/3/tsst/script/ja/typesquare.js?628669ea81dc4fd3b384558dac1e02e5" charset="utf-8"></script>
+  
+  <!-- <script src="./js/top.js"></script> -->
+  <script src="./js/mypage_faq01_v2.js"></script>
+</head>
+<body>
+  <header class="header">
+    <button type="button" id="header-btn" class="header-btn" title="メニュー開閉"><span></span></button>
+    <h1 class="header-logo"><img src="./img/logo.svg" alt="NUE_logo" width="100"></h1>
+    <div class="header-menu">
+      <a href="#"><img src="./img/cart.svg" alt="account_circle"></a>
+      <a href="#"><img src="./img/account_circle.svg" alt="account_circle"></a>
+    </div>
+    <nav class="header-gnav">
+      <ul class="header-gnav-list">
+        <li><a href="#"><span class="material-icons header-gnav-about"> home </span>about</a></li>
+        <li><a href="#"><span class="material-icons header-gnav-products">inventory_2</span>products</a></li>
+        <li><a href="#"><span class="material-icons header-gnav-selfcheck">system_security_update_good</span>self check</a></li>
+        <li><a href="#"><span class="material-icons header-gnav-faq">help_outline</span>faq</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- /.header -->
+<div class="main">
+  <div class="faq_back">
+    <a href="#" class="btn_back"><span class="material-icons">navigate_before</span>5つの質問</a>
+  </div>
+  <div class="progressbar">
+    <div class="progress_back">
+      <div class="progress_front" width="37%"></div>
+    </div>
+  </div>
+      <div class="qusetion01">
+        <p>髪の毛の「量」に変化はありましたか？変化があれば、部位と合わせて教えてください。（複数選択可）</p>
+      </div>
+      <div class="main-top answer_box">
+        <div class="option1 label1_1">
+          <span class="option1-title">増えた</span> 
+          <div class="option2">
+            <div class="option2btn hidden_box1_1_1">
+              <input type="checkbox" id="label1_1_1"/>
+              <label class="label1_1_1" for="label1_1_1">生え際(おでこ付近)</label>
+            </div>
+            <div class="option2btn hidden_box1_1_2">
+              <input type="checkbox" id="label1_1_2"/>
+              <label class="label1_1_2" for="label1_1_2">頭頂部(つむじ付近)</label>
+            </div>
+            <div class="option2btn hidden_box1_1_3">
+              <input type="checkbox" id="label1_1_3"/>
+              <label class="label1_1_3" for="label1_1_3">その他
+                <input class="fa1" type="text" placeholder="例) 全体的に密度が増えてきた">
+              </label>
+            </div>
+          </div>
+        </div>
+        
+        <div class="option1 label1_2">
+          <span class="option1-title">減った</span> 
+        <!-- </div> -->
+          <div class="option2">
+            <div class="option2btn hidden_box1_2_1">
+              <input type="checkbox" id="label1_2_1"/>
+              <label class="label1_2_1" for="label1_2_1">生え際(おでこ付近)</label>
+            </div>
+            <div class="option2btn hidden_box1_2_2">
+              <input type="checkbox" id="label1_2_2"/>
+              <label class="label1_1_2" for="label1_2_2">頭頂部(つむじ付近)</label>
+            </div>
+            <div class="option2btn hidden_box1_2_3">
+              <input type="checkbox" id="label1_2_3"/>
+              <label class="label1_2_3" for="label1_2_3">その他
+                <input class="fa2" type="text" placeholder="例) 全体的に密度が減ってきた">
+              </label>
+            </div>
+          </div>
+        </div>
+        
+        <!-- <div class="label1_3"> -->
+          <input type="checkbox" id="label1_3"/>
+          <label class="label1_3" for="label1_3">変わらない</label>
+        <!-- </div> -->
+      </div>
+
+      <div>
+        <button type="submit" value="内容を確認する" class="form_btn faq_next" id="submit" onclick="location.href='#'" disabled="disabled">
+          次へ<span class="material-icons">navigate_next</span>
+        </button>
+      </div>
+</div>
+
+
+    <!-- /.footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <img src="./img/logo.svg" alt="NUE">
+      </div>
+      <div class="footer-menu">
+        <ul class="footer-link-menu">
+          <li><a href="/products/">products</a>
+            <ul>
+            <li><a href="#">SawPalmetto</a></li>
+            <li><a href="#">Lysine/Vitamine</a></li>
+            </ul>
+          </li>
+          <li><a href="#">selfcheck</a></li>
+          <li><a href="#">faq</a></li>
+          <div class="footer-sns">
+            <a href="#"><img class="sns_logo Instagram" src="img/glyph-logo_May2016.png" alt="Instagram"></a>
+          </div>
+      </ul>
+      </div>
+      <div class="footer-menu">
+        <ul class="footer-link-info">
+          <li><a href="/recruit/">会社概要</a></li>
+          <li><a href="/company/">プライバシーポリシー</a></li>
+          <li><a href="/policy/">特定商品取引法による表示</a></li>
+          <li><a href="/privacy/">キャンセルポリシー</a></li>
+          <li><a href="/policy/">返金ポリシー</a></li>
+          <li><a href="/privacy/">利用規約</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="footer-copyright"><small>Copyright 2022 NUE All Rights</small></p>
+    <p class="footer-pagetop"><a href="#top">ページの先頭へ戻る</a></p>
+  </footer>
+</body>
+</html>

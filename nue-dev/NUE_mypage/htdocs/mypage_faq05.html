@@ -14,7 +14,7 @@
   <!-- css読込 -->
   <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
   <link rel="stylesheet" href="./css/style.css">  <!-- 共有部分の読込 -->
-  <link rel="stylesheet" href="./css/mypage_faq03.css">
+  <link rel="stylesheet" href="./css/mypage_faq05.css">
 
   <!-- Jquery -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
@@ -22,20 +22,18 @@
   <!-- Googleフォント読込【不要になったら削除】 -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-  
-    <!-- 各種JS読込 -->
-    <script src="./js/top.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-auth-compat.js"></script>
+  <!-- 各種JS読込 -->
+  <script src="./js/top.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-auth-compat.js"></script>
 
   <!-- フォント読込 -->
   <link rel="stylesheet" href="https://use.typekit.net/mje6tvq.css">
   <script type="text/javascript" src="//typesquare.com/3/tsst/script/ja/typesquare.js?628669ea81dc4fd3b384558dac1e02e5" charset="utf-8"></script>
   
   <!-- <script src="./js/top.js"></script> -->
-  <script src="./js/mypage_faq03.js"></script>
+  <script src="./js/mypage_faq05.js"></script>
 </head>
-
 <body>
   <header class="header">
     <button type="button" id="header-btn" class="header-btn" title="メニュー開閉"><span></span></button>
@@ -64,32 +62,70 @@
       <div class="progress_front" width="37%"></div>
     </div>
   </div>
-    <div class="qusetion01">
-      <p>脱⽑の量に変化はありましたか︖（複数選択不可）</p>
-    </div>
+      <div class="qusetion01">
+        <p>現在は薄⽑への対策は何かされていますか︖対策している内容を記入してください。（複数選択可）</p>
+      </div>
       <div class="main-top answer_box">
-
-          <input type="checkbox" id="label1_1"/>
-          <label class="label1_1 option" for="label1_1">抜け毛の量が減った</label>
-
-          <input type="checkbox" id="label1_2"/>
-          <label class="label1_2 option" for="label1_2">抜け毛の量が増えた</label>
-
-          <input type="checkbox" id="label1_3"/>
-          <label class="label1_3 option" for="label1_3">変わらない</label>
-
-          <input type="checkbox" id="label1_4"/>
-          <label class="label1_4 option" for="label1_4">その他
-            <input class="fa1" type="text" placeholder="例) 量の変化は正直わからない">
-          </label>
-
-        <div>
-          <button type="submit" value="内容を確認する" class="form_btn faq_next" id="submit" onclick="location.href='https://berryhack.sakura.ne.jp/nuedev/mypage_faq04.html'" disabled="disabled">
-            次へ<span class="material-icons">navigate_next</span>
-          </button>
+        <div class="option1 label1_1">
+          <span class="option1-title">発毛剤や育毛剤</span> 
+          <div class="option2">
+            <div class="option2btn hidden_box1_1_1">
+                <input class="fa1" type="text" placeholder="例) リアップなど">
+            </div>
+          </div>
         </div>
+        <div class="option1 label1_2">
+          <span class="option1-title">医療用医薬品</span> 
+          <div class="option2">
+            <div class="option2btn hidden_box1_2_1">
+                <input class="fa2" type="text" placeholder="例) ミノキシジル、フィナステリドなど">
+            </div>
+          </div>
+        </div>
+        <div class="option1 label1_3">
+          <span class="option1-title">ヘアケアシャンプー</span> 
+          <div class="option2">
+            <div class="option2btn hidden_box1_3_1">
+                <input class="fa3" type="text" placeholder="例) スカルプDなど">
+            </div>
+          </div>
+        </div>
+        <div class="option1 label1_4">
+          <span class="option1-title">サプリメント</span> 
+          <div class="option2">
+            <div class="option2btn hidden_box1_4_1">
+                <input class="fa4" type="text" placeholder="例) アミノ酸サプリなど">
+            </div>
+          </div>
+        </div>
+        <div class="option1 label1_5">
+          <span class="option1-title">増毛/植毛/ウィッグ</span> 
+          <div class="option2">
+            <div class="option2btn hidden_box1_5_1">
+                <input class="fa5" type="text" placeholder="例) ヘアフォーライフなど">
+            </div>
+          </div>
+        </div>
+        <div class="option1 label1_6">
+          <span class="option1-title">その他<br>(オイルケア・マッサージ等)</span> 
+          <div class="option2">
+            <div class="option2btn hidden_box1_6_1">
+                <input class="fa6" type="text" placeholder="例) 入浴時に専用ブラシにてマッサージなど">
+            </div>
+          </div>
+        </div>
+        <input type="checkbox" id="label1_7"/>
+        <label class="label1_7" for="label1_7">特に何をしていない</label>
+        <!-- </div> -->
+      </div>
+
+      <div>
+        <button type="submit" value="内容を確認する" class="form_btn faq_next" id="submit" onclick="location.href='https://berryhack.sakura.ne.jp/nuedev/mypage_faq06.html'" disabled="disabled">
+          次へ<span class="material-icons">navigate_next</span>
+        </button>
       </div>
 </div>
+
 
     <!-- /.footer -->
   <footer class="footer">
@@ -126,7 +162,6 @@
     <p class="footer-copyright"><small>Copyright 2022 NUE All Rights</small></p>
     <p class="footer-pagetop"><a href="#top">ページの先頭へ戻る</a></p>
   </footer>
-
     <!--** 以下Firebase **-->
     <script type="module">
       // Import the functions you need from the SDKs you need
@@ -208,7 +243,7 @@
     //Login画面へ
     //###############################################
     function _redirect(){
-      location.href="https://berryhack.sakura.ne.jp/chatapp/";
+      location.href="https://berryhack.sakura.ne.jp/nuedev/login.html";
     }
     
       // 送信イベント
@@ -218,10 +253,18 @@
     // console.log(year + '年' + month + '月' + day + '日' + '[' + dayname[dayofweek] + ']' + hour + '時' + minute + '分' + second + '.' + millisecond + '秒');
           const msg = {
           q1_label1_1 : Boolean($("#label1_1").prop('checked')),
+          q1_label1_1_text : $(".fa1").val(),
           q1_label1_2 : Boolean($("#label1_2").prop('checked')),
+          q1_label1_2_text : $(".fa2").val(),
           q1_label1_3 : Boolean($("#label1_3").prop('checked')),
+          q1_label1_3_text : $(".fa3").val(),
           q1_label1_4 : Boolean($("#label1_4").prop('checked')),
-          q1_label1_4_text : $(".fa1").val(),
+          q1_label1_4_text : $(".fa4").val(),
+          q1_label1_5 : Boolean($("#label1_5").prop('checked')),
+          q1_label1_5_text : $(".fa5").val(),
+          q1_label1_6 : Boolean($("#label1_6").prop('checked')),
+          q1_label1_6_text : $(".fa6").val(),
+          q1_label1_7 : Boolean($("#label1_7").prop('checked')),
           year : ymd.getFullYear(), 
           month :("0"+ (ymd.getMonth()+1)).slice(-2), 
           day : ("0"+ ymd.getDate()).slice(-2), 
@@ -233,12 +276,11 @@
           daynamejp : dayname[ymd.getDay()],
           };
           const uid = $('body').attr('id');
-          const dbRef = ref(db,"q03/"+uid+"/"+ymd);
+          const dbRef = ref(db,"q05/"+uid+"/"+ymd);
           // const newPostRef = push(dbRef); //ユニークKEYを生成
           console.log(dbRef);
           set(dbRef, msg);           //"chat"にユニークKEYをつけてオブジェクトデータを登録
      });
     </script>
-
 </body>
 </html>

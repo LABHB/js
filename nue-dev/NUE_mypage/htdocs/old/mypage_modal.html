@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+  <link rel="stylesheet" href="./css/mypage_modal.css">
+</head>
+<body>
+
+<!-- クリックしたらモーダルを表示するボタン -->
+<a href="#" class="btn">モーダルウィンドウを表示</a>
+
+<!-- オーバーレイ -->
+<div class="overlay"></div>
+
+<!-- モーダルウィンドウ -->
+<div class="modal">
+    <h2>最初の画面に戻ります</h2>
+    <p>撮影された内容は削除されます。<br>
+       よろしいですか？</p>
+      <div class="modalbtn">
+        <div class="close cancel">
+          <a href="#">キャンセル</a>
+        </div>
+        <div class="back">
+          <a href="https://nue.onl">戻る</a>
+        </div>
+      </div>
+
+</div>
+
+<!-- スクロールで高さを出すためのsectionタグ -->
+<section></section>
+<script src="./js/mypage_modal.js" ></script>
+</body>
+</html>

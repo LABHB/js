@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"liveServer.settings.root": "/htdocs",
+		"liveSassCompile.settings.formats": [
+				{
+						"format": "expanded",
+						"extensionName": ".css",
+						"savePath": "/css",
+				}
+		],
+	}
+}

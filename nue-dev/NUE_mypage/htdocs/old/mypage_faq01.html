@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>NUE mypage firstuser</title>
-  <meta name="description" content="NUEは、メンズヘアケアブランドです.">
+  <title>NUE mypage faq</title>
+  <meta name="description" content="NUEは、メンズヘアケアブランドです。今の状況を教えてください。">
   <meta name="format-detection" content="telephone=no">
 
   <!-- favicon読込 -->
@@ -14,20 +14,21 @@
   <!-- css読込 -->
   <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
   <link rel="stylesheet" href="./css/style.css">  <!-- 共有部分の読込 -->
-
+  <link rel="stylesheet" href="./css/mypage_faq01.css">
 
   <!-- Jquery -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
   <!-- Googleフォント読込【不要になったら削除】 -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  
-  <script src="./js/top.js"></script>
 
+  
   <!-- フォント読込 -->
   <link rel="stylesheet" href="https://use.typekit.net/mje6tvq.css">
   <script type="text/javascript" src="//typesquare.com/3/tsst/script/ja/typesquare.js?628669ea81dc4fd3b384558dac1e02e5" charset="utf-8"></script>
-
+  
+  <script src="./js/top.js"></script>
+  <script src="./js/mypage_faq01.js"></script>
 </head>
 <body>
   <header class="header">
@@ -48,63 +49,79 @@
   </header>
 
   <!-- /.header -->
+
   <main class="main">
-    <div class="main-title">
-      <h3> mypage </h3>
-      <h2>マイページ</h2>
+    <div class="faq_back">
+      <a href="#" class="btn_back"><span class="material-icons">navigate_before</span>5つの質問</a>
     </div>
-    <section class="rec_guide">
-      <div class="rec_guidetitle">
-        <h3>self check</h3>
+    <div class="progressbar">
+      <div class="progress_back">
+        <div class="progress_front" width="37%"></div>
       </div>
-      <div id="r_accordion" class="r_accordion-container record">
-        <h4 class="r_accordion-title r_js-accordion-title record-toggle"><img src="./img/camera.svg" alt="">写真記録</h4>
-        <div class="r_accordion-content">
-          <p class="r_record-date"> <span class="latest-record">最新記録</span>2022.03.15</p>
-          <p class="record-class">ハミルトン・ノーウッド分類：IIα型</p>
-          <div class="record-picture-1">
-            <div class="record-picture-1-1">
-              <img class="record-picture-forehead" src="img/10_20220214185823_tophead.jpeg">
-            </div>
-            <div class="record-picture-1-2">
-              <img class="record-picture-crown" src="img/10_20220214185823_forehead.jpeg">
+    </div>
+    <div class="qusetion01">
+      <p>髪の毛の量に変化はありましたか？変化があれば、部位と合わせて教えてください。（複数選択可）</p>
+    </div>
+    <div class="main-top hidden_box">
+      <div class="main-top hidden_box1">
+        <input type="checkbox" id="label1_1"/>
+        <label class="label1_1" for="label1_1">増えた</label>
+        <div class="hidden_show1_1">
+          <!--非表示ここから-->     
+          <div class="main-top hidden_box1_1_1">
+            <input type="checkbox" id="label1_1_1"/>
+            <label class="label1_1_1" for="label1_1_1">生え際(おでこ付近)</label>
+          </div>
+          <div class="main-top hidden_box1_1_2">
+            <input type="checkbox" id="label1_1_2"/>
+            <label class="label1_1_2" for="label1_1_2">頭頂部(つむじ付近)</label>
+          </div>
+          <div class="main-top hidden_box1_1_3">
+            <input type="checkbox" id="label1_1_3"/>
+            <label class="label1_1_3" for="label1_1_3">その他</label>
+            <div class="hidden_show1_1_3">
+              <input class="fa" type="text" placeholder="自由に記載してください">
             </div>
           </div>
-          <div class="record-btn-more">
-            <a href="/app_hair/my-pages/result" class="btn-more-text">詳しく見る<span class="material-icons">navigate_next</span></a>
-          </div>  
-          <div class="buttons">
-            <!-- /.record -->
-            <a href="#" class="btn-rec-new">新たに記録する<span class="material-icons">navigate_next</span></a>
-            <a href="#" class="btn-compare">データを比較する<span class="material-icons">navigate_next</span></a>
+          <!--ここまで-->
+        </div>  
+      </div>
+      <div class="main-top hidden_box1_2">
+        <input type="checkbox" id="label1_2"/>
+        <label class="label1_2" for="label1_2">減った</label>
+        <div class="hidden_show1_2">
+        <!--非表示ここから-->     
+        <div class="main-top hidden_box1_2_1">
+          <input type="checkbox" id="label1_2_1"/>
+          <label class="label1_2_1" for="label1_2_1">生え際(おでこ付近)</label>
+        </div>
+        <div class="main-top hidden_box1_2_2">
+          <input type="checkbox" id="label1_2_2"/>
+          <label class="label1_2_2" for="label1_2_2">頭頂部(つむじ付近)</label>
+        </div>
+        <div class="main-top hidden_box1_2_3">
+            <input type="checkbox" id="label1_2_3"/>
+            <label class="label1_2_3" for="label1_2_3">その他</label>
+          <div class="hidden_show1_2_3">
+          <input class="fa" type="text" placeholder="自由に記載してください">
           </div>
         </div>
+        <!--ここまで-->
+        </div>
       </div>
-    </section>
-
-  <!-- /お客様情報パート -->
-    <div class="accountinfo">
-      <div class="accountinfotitle">
-        <h3>お客様情報</h3>
-      </div>
-      <div class="accountinfocontent">
-        <h4> <a href="#"><img src="./img/account_circle.svg" alt="">会員情報</a></h4>
+      <div class="main-top hidden_box1_3">
+        <input type="checkbox" id="label1_3"/>
+        <label class="label1_3" for="label1_3">変化なし</label>
       </div>
     </div>
-  <!-- /サポートパート -->
-    <div class="support">
-      <div class="supporttitle">
-        <h3 >サポート</h3>
-      </div>
-      <div class="supportcontent">
-        <h4> <a href="#"><img src="./img/mail.svg" alt="">お問合せ</a></h4><!-- ファイル置換【不要になったら削除】 --><!-- リンク付与 -->
-        <h4> <a href="#"><img src="./img/faq.svg" alt="">よくあるご質問</a></h4><!-- ファイル置換【不要になったら削除】 --><!-- リンク付与 -->
-        <h4> <a href="#"><img src="./img/withdrawal.svg" alt="">退会手続き</a></h4><!-- ファイル置換【不要になったら削除】 --><!-- リンク付与 -->
-      </div>
+    <div>
+      <button type="submit" value="内容を確認する" class="form_btn faq_next" id="submit" onclick="location.href='#'" disabled="disabled">
+        次へ<span class="material-icons">navigate_next</span>
+      </button>
     </div>
   </main>
 
-  <!-- /.footer -->
+    <!-- /.footer -->
   <footer class="footer">
     <div class="footer-inner">
       <div class="footer-logo">
@@ -141,4 +158,3 @@
   </footer>
 </body>
 </html>
-

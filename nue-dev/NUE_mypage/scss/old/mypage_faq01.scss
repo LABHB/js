@@ -1,0 +1,489 @@
+// variables--------------------
+$breakpoints: (
+  'sm-min': 'screen and (min-width: 576px)',
+  'sm-max': 'screen and (max-width: 575px)',
+  'md-min': 'screen and (min-width: 768px)',
+  'md-max': 'screen and (max-width: 767px)',
+  'lg-min': 'screen and (min-width: 992px)',
+  'lg-max': 'screen and (max-width: 991px)',
+  'xl-min': 'screen and (min-width: 1131px)',
+  'xl-max': 'screen and (max-width: 1130px)',
+);
+@mixin mq($breakpoint: md-min) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
+
+$c_black : #333;
+$c_green : #459209;
+$c_yellow : #efdd34;
+$c_beige : #efe1c5;
+$c_brown : #3C3526;
+$c_bg : #FAF7F2;
+$m-width : 1200px;
+$c_header : #F1F0EA;
+$c_browntext : #BFB7A7;
+$c_content_bg : #EFEAE4;
+$c_btn_brown :#3C3526;
+$c_footer_bg : #C1B6A1;
+
+.material-icons{
+  display: inline-flex;
+  vertical-align: middle;
+  padding-right: 5px;
+  }
+
+// common
+body {
+  font-family: 'itc-avant-garde-gothic-pro','Midashi Go MB31';/* モリサワフォント読み込めていないので、要改修（クラウド９で作業？） */
+  font-size: 14px;
+  line-height: 1.8;
+  letter-spacing: 0.05em;
+  color: $c_black;
+  background-color: $c_bg;
+}
+a {
+  color: $c_black;
+  text-decoration: none;
+}
+img {
+  max-width: 100%;
+  vertical-align: bottom;
+}
+ul {
+  list-style: none;
+}
+
+//main--------------------
+.main {
+  margin-top: 80px;
+  @include mq(md-min) {
+    margin-top: 80px;
+  }
+  .main-top {
+    max-width: 400px;
+    text-align: center;
+  }
+  /*全体*/
+.hidden_box {
+  width: 90%;
+  margin: 1em auto;
+  padding: 0;
+}
+
+/*ボタン装飾*/
+.hidden_box {
+  .label1_1 {
+    display: block;
+    width: 300px;
+    margin: 10px auto;
+    background-color: white;
+    color: #6A4E4E;
+    padding: 15px;
+    font-weight: normal;
+    border: solid 1px #6A4E4E;
+    border-radius: 30px;
+    cursor :pointer;
+  }
+  .label1_1:hover {
+    background: #8B806C;
+    border: solid 1px #8B806C;
+    color: white;
+  }
+
+  .label1_1_1 {
+    display: block;
+    width: 250px;
+    margin: 10px 50px 10px auto;
+    background-color: white;
+    color: #6A4E4E;
+    padding: 15px;
+    font-weight: normal;
+    border: solid 1px #6A4E4E;
+    border-radius: 30px;
+    cursor :pointer;
+  }
+  .label1_1_1:hover {
+    background: #8B806C;
+    border: solid 1px #8B806C;
+    color: white;
+  }
+  .label1_1_2 {
+    display: block;
+    width: 250px;
+    margin: 10px 50px 10px auto;
+    background-color: white;
+    color: #6A4E4E;
+    padding: 15px;
+    font-weight: normal;
+    border: solid 1px #6A4E4E;
+    border-radius: 30px;
+    cursor :pointer;
+  }
+  .label1_1_2:hover {
+    background: #8B806C;
+    border: solid 1px #8B806C;
+    color: white;
+  }
+  .label1_1_3 {
+    display: block;
+    width: 250px;
+    margin: 10px 50px 10px auto;
+    background-color: white;
+    color: #6A4E4E;
+    padding: 15px;
+    font-weight: normal;
+    border: solid 1px #6A4E4E;
+    border-radius: 30px;
+    cursor :pointer;
+  }
+  .label1_1_3:hover {
+    background: #8B806C;
+    border: solid 1px #8B806C;
+    color: white;
+  }
+
+  .label1_2 {
+    display: block;
+    width: 300px;
+    margin: 10px auto;
+    background-color: white;
+    color: #6A4E4E;
+    padding: 15px;
+    font-weight: normal;
+    border: solid 1px #6A4E4E;
+    border-radius: 30px;
+    cursor :pointer;
+  }
+  .label1_2:hover {
+    background: #8B806C;
+    border: solid 1px #8B806C;
+    color: white;
+  }
+
+  .label1_2_1 {
+    display: block;
+    width: 250px;
+    margin: 10px 50px 10px auto;
+    background-color: white;
+    color: #6A4E4E;
+    padding: 15px;
+    font-weight: normal;
+    border: solid 1px #6A4E4E;
+    border-radius: 30px;
+    cursor :pointer;
+  }
+  .label1_2_1:hover {
+    background: #8B806C;
+    border: solid 1px #8B806C;
+    color: white;
+  }
+  .label1_2_2 {
+    display: block;
+    width: 250px;
+    margin: 10px 50px 10px auto;
+    background-color: white;
+    color: #6A4E4E;
+    padding: 15px;
+    font-weight: normal;
+    border: solid 1px #6A4E4E;
+    border-radius: 30px;
+    cursor :pointer;
+  }
+  .label1_2_2:hover {
+    background: #8B806C;
+    border: solid 1px #8B806C;
+    color: white;
+  }
+  .label1_2_3 {
+    display: block;
+    width: 250px;
+    margin: 10px 50px 10px auto;
+    background-color: white;
+    color: #6A4E4E;
+    padding: 15px;
+    font-weight: normal;
+    border: solid 1px #6A4E4E;
+    border-radius: 30px;
+    cursor :pointer;
+  }
+  .label1_2_3:hover {
+    background: #8B806C;
+    border: solid 1px #8B806C;
+    color: white;
+  }
+
+  .label1_3 {
+    display: block;
+    width: 300px;
+    margin: 10px auto;
+    background-color: white;
+    color: #6A4E4E;
+    padding: 15px;
+    font-weight: normal;
+    border: solid 1px #6A4E4E;
+    border-radius: 30px;
+    cursor :pointer;
+  }
+  .label1_3:hover {
+    background: #8B806C;
+    border: solid 1px #8B806C;
+    color: white;
+  }
+}
+
+/*チェックは見えなくする*/
+.hidden_box input[type="checkbox"] {
+  display: none;
+}
+
+/*faは見えるように*/
+.hidden_box input[type="text"] {
+    width: 80%;
+    border: 2px solid #aaa;
+    border-radius: 4px;
+    margin: 8px 0;
+    outline: none;
+    padding: 8px;
+    box-sizing: border-box;
+    transition: 0.3s;
+  }
+  
+  input[type="text"]:focus {
+    border-color: dodgerBlue;
+    box-shadow: 0 0 8px 0 dodgerBlue;
+  }
+
+/*中身を非表示にしておく*/
+.hidden_box1 .hidden_show1_1 {
+  height: 0;
+  padding: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: 0.8s;
+  .hidden_show1_1_3 {
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: 0.8s;
+  }
+}
+.hidden_box1 .hidden_show1_2 {
+  height: 0;
+  padding: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: 0.8s;
+  .hidden_show1_2_3 {
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: 0.8s;
+  }
+}
+.hidden_box1 .hidden_show1_1 {
+  height: 0;
+  padding: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: 0.8s;
+  .hidden_show1_1_3 {
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: 0.8s;
+  }
+}
+.hidden_box1_2 .hidden_show1_2 {
+  height: 0;
+  padding: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: 0.8s;
+  .hidden_show1_2_3 {
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: 0.8s;
+  }
+}
+
+/*クリックで中身表示*/
+.hidden_box1 input:checked ~ .hidden_show1_1 {
+  padding: 10px 0;
+  height: auto;
+  opacity: 1;
+}
+.hidden_box1 input:checked ~ .label1_1 {
+  background: #8B806C;
+  border: solid 1px #8B806C;
+  color: white;
+}
+.hidden_box1 input:checked ~ .label1_1_1 {
+  background: #8B806C;
+  border: solid 1px #8B806C;
+  color: white;
+}
+.hidden_box1 input:checked ~ .label1_1_2 {
+  background: #8B806C;
+  border: solid 1px #8B806C;
+  color: white;
+}
+.hidden_box1 input:checked ~ .label1_1_3 {
+  background: #8B806C;
+  border: solid 1px #8B806C;
+  color: white;
+}
+
+.hidden_box1_1_3 input:checked ~ .hidden_show1_1_3 {
+  padding: 10px 0;
+  height: auto;
+  opacity: 1;
+}
+.hidden_box1_2 input:checked ~ .hidden_show1_2 {
+  padding: 10px 0;
+  height: auto;
+  opacity: 1;
+}
+.hidden_box1_2 input:checked ~ .label1_2 {
+  background: #8B806C;
+  border: solid 1px #8B806C;
+  color: white;
+}
+.hidden_box1_2 input:checked ~ .label1_2_1 {
+  background: #8B806C;
+  border: solid 1px #8B806C;
+  color: white;
+}
+.hidden_box1_2 input:checked ~ .label1_2_2 {
+  background: #8B806C;
+  border: solid 1px #8B806C;
+  color: white;
+}
+.hidden_box1_2 input:checked ~ .label1_2_3 {
+  background: #8B806C;
+  border: solid 1px #8B806C;
+  color: white;
+}
+
+.hidden_box1_2_3 input:checked ~ .hidden_show1_2_3 {
+  padding: 10px 0;
+  height: auto;
+  opacity: 1;
+}
+.hidden_box1_3 input:checked ~ .label1_3 {
+  background: #8B806C;
+  border: solid 1px #8B806C;
+  color: white;
+}
+}
+/*メイン上部*/
+.faq_back {
+  display: flex;
+  background-color: #EBE2D6;
+  width: 100%;
+  height: 60px;
+  .btn_back {
+    font-size: 16px;
+    font-weight: normal;
+    color: #413A2A;
+    text-align: center;
+    display: block;
+    position: relative;
+    margin: 10px auto;
+    padding: 4px 0;
+    transition: all .3s;
+    @include mq(md-min) {
+      width: 250px;
+    }
+    span {
+      position: absolute;
+      top: 50%;
+      left: -100px;
+      margin-top: -15px;
+      font-size: 30px;
+      color: #3C3526;
+    }
+} 
+}
+.qusetion01 {
+  color: #363636;
+  font-size: 16px;
+  margin: 38px 20px;
+  text-align: center;
+}
+
+/*プログレスバー*/
+.progressbar {
+  background-color: #EBE2D6;
+  height: 20px;
+}
+
+.progress_back {
+  display: block;
+  width: 80%;
+  margin: auto;
+  height: 10px;
+  background: #FFFFFF;
+  position: relative;
+  border-radius: 10px;
+}
+.progress_front {
+  display: block;
+//80%*1/6=13.3333%
+  width: 13%;
+  height: 10px;
+  background: #C1B6A1;
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+  transition: 0.5s ease-in-out;
+  overflow: hidden;
+  }
+
+
+/*次の質問へと進むボタン*/
+.faq_next {
+  font-size: 18px;
+  font-weight: normal;
+  color: #FFFFFF ;
+  text-align: center;
+  display: block;
+  position: relative;
+  width: 300px;
+  height: 60px;
+  margin: 32px auto;
+  padding: 12px 0;
+  background:$c_btn_brown;
+  transition: all .3s;
+  @include mq(md-min) {
+    width: 250px;
+  }
+  span {
+    position: absolute;
+    top: 50%;
+    right: 6px;
+    margin-top: -15px;
+    font-size: 30px;
+  }
+
+  &:hover {
+    background:$c_beige;
+    border-color: $c_beige;
+  }
+}
+button[type="submit"][disabled] {
+  background-color: #fff;
+  color: #ccc;
+  border-color: #ccc;
+  cursor: default;
+}
+button[type="submit"][disabled]:hover{
+opacity:1;
+}
