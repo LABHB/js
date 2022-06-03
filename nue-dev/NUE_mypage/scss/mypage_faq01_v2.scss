@@ -77,6 +77,10 @@ ul {
     width: 100%;
     text-align: center;
   }
+  .is-hidden { /*横山さんご指摘事項反映*/
+    display: none;
+   }
+
   .option1-title::after{ /*アコーディオン装飾*/
     content: "";
     position: absolute;
@@ -180,6 +184,17 @@ input[type="text"] {
   input[type="text"]:focus {
     border-color: dodgerBlue;
     box-shadow: 0 0 8px 0 dodgerBlue;
+  }
+
+  .fa-filledout{
+    background-color: #8B806C;
+    border: solid 1px #8B806C;
+    color: white;
+  }
+  .fa-null{
+    background-color: white;
+    border: solid 1px #6A4E4E;
+    color: #6A4E4E;
   }
 }
 

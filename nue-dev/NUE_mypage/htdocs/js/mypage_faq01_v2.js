@@ -1,7 +1,8 @@
 // トグルに設定
 jQuery(function ($) {
-    $(".option2").css("display", "none");
-    // 質問の答えをあらかじめ非表示
+    // Option2（詳細項目）を最初は非表示
+    const HIDDEN_CLASS = "is-hidden";
+    $(".option2").addClass(HIDDEN_CLASS);
     
     //質問をクリック
     $(".option1").click(function () {
@@ -29,35 +30,29 @@ jQuery(function ($) {
     
     // テキストエリアに文字が入力されていたら、テキストエリアの外はチェックと同様のエフェクトを追加、かつ「次へ」のボタンをクリックできるように
     $('.fa1').bind('keydown keyup keypress change blur',function(){
-        const a = $("input.fa1").val().length;
-        console.log(a);
-        if (a !== 0) {
-        $(".label1_1_3").css("background", "#8B806C");
-        $(".label1_1_3").css("border", "solid 1px #8B806C");
-        $(".label1_1_3").css("color", "white");
+        const textLength = $("input.fa1").val().length;
+        if (textLength !== 0) {
+        const FAFilledOut = "fa-filledout";
+        $(".label1_1_3").addClass(FAFilledOut);
         $('#label1_1_3').prop('checked', true);
         $('#submit').removeAttr('disabled');
     }else{
-        $(".label1_1_3").css("background", "white");
-        $(".label1_1_3").css("border", "solid 1px #6A4E4E");
-        $(".label1_1_3").css("color", "#6A4E4E");
+        const FANull = "fa-null";
+        $(".label1_1_3").addClass(FANull);
         $('#label1_1_3').prop('checked', false);
         $('#submit').attr('disabled', 'disabled');
     }
 });
 $('.fa2').bind('keydown keyup keypress change',function(){
-    const a = $("input.fa2").val().length;
-    console.log(a);
-    if (a !== 0) {
-        $(".label1_2_3").css("background", "#8B806C");
-        $(".label1_2_3").css("border", "solid 1px #8B806C");
-        $(".label1_2_3").css("color", "white");
+    const textLength = $("input.fa2").val().length;
+    if (textLength !== 0) {
+        const FAFilledOut = "fa-filledout";
+        $(".label1_2_3").addClass(FAFilledOut);
         $('#label1_2_3').prop('checked', true);
         $('#submit').removeAttr('disabled');
     }else{
-        $(".label1_2_3").css("background", "white");
-        $(".label1_2_3").css("border", "solid 1px #6A4E4E");
-        $(".label1_2_3").css("color", "#6A4E4E");
+        const FANull = "fa-null";
+        $(".label1_2_3").addClass(FANull);
         $('#label1_2_3').prop('checked', false);
         $('#submit').attr('disabled', 'disabled');
         }
