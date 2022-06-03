@@ -164,7 +164,17 @@ ul {
     border: solid 1px #8B806C;
     color: white;
   }
-
+  
+  .fa-filledout{
+    background-color: #8B806C;
+    border: solid 1px #8B806C;
+    color: white;
+  }
+  .fa-null{
+    background-color: white;
+    border: solid 1px #6A4E4E;
+    color: #6A4E4E;
+  }
 }
 
 /*インプット欄のデザイン*/
@@ -186,16 +196,6 @@ input[type="text"] {
     box-shadow: 0 0 8px 0 dodgerBlue;
   }
 
-  .fa-filledout{
-    background-color: #8B806C;
-    border: solid 1px #8B806C;
-    color: white;
-  }
-  .fa-null{
-    background-color: white;
-    border: solid 1px #6A4E4E;
-    color: #6A4E4E;
-  }
 }
 
 /*メイン上部*/

@@ -29,34 +29,59 @@ jQuery(function ($) {
     });
     
     // テキストエリアに文字が入力されていたら、テキストエリアの外はチェックと同様のエフェクトを追加、かつ「次へ」のボタンをクリックできるように
-    $('.fa1').bind('keydown keyup keypress change blur',function(){
-        const textLength = $("input.fa1").val().length;
-        if (textLength !== 0) {
-        const FAFilledOut = "fa-filledout";
-        $(".label1_1_3").addClass(FAFilledOut);
-        $('#label1_1_3').prop('checked', true);
-        $('#submit').removeAttr('disabled');
-    }else{
-        const FANull = "fa-null";
-        $(".label1_1_3").addClass(FANull);
-        $('#label1_1_3').prop('checked', false);
-        $('#submit').attr('disabled', 'disabled');
-    }
-});
-$('.fa2').bind('keydown keyup keypress change',function(){
-    const textLength = $("input.fa2").val().length;
-    if (textLength !== 0) {
-        const FAFilledOut = "fa-filledout";
-        $(".label1_2_3").addClass(FAFilledOut);
-        $('#label1_2_3').prop('checked', true);
-        $('#submit').removeAttr('disabled');
-    }else{
-        const FANull = "fa-null";
-        $(".label1_2_3").addClass(FANull);
-        $('#label1_2_3').prop('checked', false);
-        $('#submit').attr('disabled', 'disabled');
-        }
-    });
+    function textLabelStatus($target) {
+        $($target).bind('keydown keyup keypress change blur',function(){
+            const textLength = $("input"+$target).val().length;
+            console.log(textLength);
+            const FAFilledOut = "fa-filledout";
+            if (textLength !== 0) {
+                $($target).parent('label').addClass(FAFilledOut);
+                console.log($($target).parent('label'));
+                $($target).parent('input').prop('checked', true);
+                $('#submit').removeAttr('disabled');
+            }else{
+                $($target).parent('label').removeClass(FAFilledOut);
+                $($target).parent('input').prop('checked', false);
+                $('#submit').attr('disabled', 'disabled');
+            }
+        });
+      }
+      textLabelStatus('.fa1');
+      textLabelStatus('.fa2');
+
+      //textLabelStatusにまとめてみた
+//     $('.fa1').bind('keydown keyup keypress change blur',function(){
+//         // const textLength = $("input."+$fa).val().length;
+//         const textLength = $("input.fa1").val().length;
+//         if (textLength !== 0) {
+//         const FAFilledOut = "fa-filledout";
+//         // $($fa).parent('label').addClass(FAFilledOut);
+//         $(".label1_1_3").addClass(FAFilledOut);
+//         // $($fa).parent('input').prop('checked', true);
+//         $('#label1_1_3').prop('checked', true);
+//         $('#submit').removeAttr('disabled');
+//     }else{
+//         const FANull = "fa-null";
+//         $(".label1_1_3").addClass(FANull);
+//         $('#label1_1_3').prop('checked', false);
+//         $('#submit').attr('disabled', 'disabled');
+//     }
+// });
+// $('.fa2').bind('keydown keyup keypress change',function(){
+//     const textLength = $("input.fa2").val().length;
+//     if (textLength !== 0) {
+//         const FAFilledOut = "fa-filledout";
+//         $(".label1_2_3").addClass(FAFilledOut);
+//         $('#label1_2_3').prop('checked', true);
+//         $('#submit').removeAttr('disabled');
+//     }else{
+//         const FANull = "fa-null";
+//         $(".label1_2_3").addClass(FANull);
+//         $('#label1_2_3').prop('checked', false);
+//         $('#submit').attr('disabled', 'disabled');
+//         }
+//     });
+
 //以下だと、ラベル機能自体がなくなってしまう。
     // $("#label1_1_3").attr('disabled', 'disabled');
     // $("#label1_2_3").attr('disabled', 'disabled');
@@ -73,88 +98,97 @@ $(function() {
           $('#submit').removeAttr('disabled');　//⑤
       }
   });
-  $('#label1_2_1').click(function() { //②
-    if ( $(this).prop('checked') == false ) {　//③
-        $('#submit').attr('disabled', 'disabled');　//④
-    } else {
-        $('#submit').removeAttr('disabled');　//⑤
-    }
-});
-$('#label1_2_2').click(function() { //②
-    if ( $(this).prop('checked') == false ) {　//③
-        $('#submit').attr('disabled', 'disabled');　//④
-    } else {
-        $('#submit').removeAttr('disabled');　//⑤
-    }
-});
-$('#label1_2_3').click(function() { //②
-    if ( $(this).prop('checked') == false ) {　//③
-        $('#submit').attr('disabled', 'disabled');　//④
-    } else {
-        $('#submit').removeAttr('disabled');　//⑤
-    }
-});
-$('#label1_2_4').click(function() { //②
-    if ( $(this).prop('checked') == false ) {　//③
-        $('#submit').attr('disabled', 'disabled');　//④
-    } else {
-        $('#submit').removeAttr('disabled');　//⑤
-    }
-});
-$('#label1_2_5').click(function() { //②
-    if ( $(this).prop('checked') == false ) {　//③
-        $('#submit').attr('disabled', 'disabled');　//④
-    } else {
-        $('#submit').removeAttr('disabled');　//⑤
-    }
-});
-$('#label1_2_6').click(function() { //②
-    if ( $(this).prop('checked') == false ) {　//③
-        $('#submit').attr('disabled', 'disabled');　//④
-    } else {
-        $('#submit').removeAttr('disabled');　//⑤
-    }
-});
-$('#label1_1_1').click(function() { //②
-    if ( $(this).prop('checked') == false ) {　//③
-        $('#submit').attr('disabled', 'disabled');　//④
-    } else {
-        $('#submit').removeAttr('disabled');　//⑤
-    }
-});
-$('#label1_1_2').click(function() { //②
-    if ( $(this).prop('checked') == false ) {　//③
-        $('#submit').attr('disabled', 'disabled');　//④
-    } else {
-        $('#submit').removeAttr('disabled');　//⑤
-    }
-});
-$('#label1_1_3').click(function() { //②
-    if ( $(this).prop('checked') == false ) {　//③
-        $('#submit').attr('disabled', 'disabled');　//④
-    } else {
-        $('#submit').removeAttr('disabled');　//⑤
-    }
-});
-$('#label1_1_4').click(function() { //②
-    if ( $(this).prop('checked') == false ) {　//③
-        $('#submit').attr('disabled', 'disabled');　//④
-    } else {
-        $('#submit').removeAttr('disabled');　//⑤
-    }
-});
-$('#label1_1_5').click(function() { //②
-    if ( $(this).prop('checked') == false ) {　//③
-        $('#submit').attr('disabled', 'disabled');　//④
-    } else {
-        $('#submit').removeAttr('disabled');　//⑤
-    }
-});
-$('#label1_1_6').click(function() { //②
-    if ( $(this).prop('checked') == false ) {　//③
-        $('#submit').attr('disabled', 'disabled');　//④
-    } else {
-        $('#submit').removeAttr('disabled');　//⑤
-    }
-});
+  $(".option2btn input[type='checkbox']").each(function(index, element){  //85行目から168行目をeachで対応
+    $(this).click(function() { //②
+        if ( $(this).prop('checked') == false ) {　//③
+            $('#submit').attr('disabled', 'disabled');　//④
+        } else {
+            $('#submit').removeAttr('disabled');　//⑤
+        }
+    });
+   });
+//   $('#label1_2_1').click(function() { //②
+//     if ( $(this).prop('checked') == false ) {　//③
+//         $('#submit').attr('disabled', 'disabled');　//④
+//     } else {
+//         $('#submit').removeAttr('disabled');　//⑤
+//     }
+// });
+// $('#label1_2_2').click(function() { //②
+//     if ( $(this).prop('checked') == false ) {　//③
+//         $('#submit').attr('disabled', 'disabled');　//④
+//     } else {
+//         $('#submit').removeAttr('disabled');　//⑤
+//     }
+// });
+// $('#label1_2_3').click(function() { //②
+//     if ( $(this).prop('checked') == false ) {　//③
+//         $('#submit').attr('disabled', 'disabled');　//④
+//     } else {
+//         $('#submit').removeAttr('disabled');　//⑤
+//     }
+// });
+// $('#label1_2_4').click(function() { //②
+//     if ( $(this).prop('checked') == false ) {　//③
+//         $('#submit').attr('disabled', 'disabled');　//④
+//     } else {
+//         $('#submit').removeAttr('disabled');　//⑤
+//     }
+// });
+// $('#label1_2_5').click(function() { //②
+//     if ( $(this).prop('checked') == false ) {　//③
+//         $('#submit').attr('disabled', 'disabled');　//④
+//     } else {
+//         $('#submit').removeAttr('disabled');　//⑤
+//     }
+// });
+// $('#label1_2_6').click(function() { //②
+//     if ( $(this).prop('checked') == false ) {　//③
+//         $('#submit').attr('disabled', 'disabled');　//④
+//     } else {
+//         $('#submit').removeAttr('disabled');　//⑤
+//     }
+// });
+// $('#label1_1_1').click(function() { //②
+//     if ( $(this).prop('checked') == false ) {　//③
+//         $('#submit').attr('disabled', 'disabled');　//④
+//     } else {
+//         $('#submit').removeAttr('disabled');　//⑤
+//     }
+// });
+// $('#label1_1_2').click(function() { //②
+//     if ( $(this).prop('checked') == false ) {　//③
+//         $('#submit').attr('disabled', 'disabled');　//④
+//     } else {
+//         $('#submit').removeAttr('disabled');　//⑤
+//     }
+// });
+// $('#label1_1_3').click(function() { //②
+//     if ( $(this).prop('checked') == false ) {　//③
+//         $('#submit').attr('disabled', 'disabled');　//④
+//     } else {
+//         $('#submit').removeAttr('disabled');　//⑤
+//     }
+// });
+// $('#label1_1_4').click(function() { //②
+//     if ( $(this).prop('checked') == false ) {　//③
+//         $('#submit').attr('disabled', 'disabled');　//④
+//     } else {
+//         $('#submit').removeAttr('disabled');　//⑤
+//     }
+// });
+// $('#label1_1_5').click(function() { //②
+//     if ( $(this).prop('checked') == false ) {　//③
+//         $('#submit').attr('disabled', 'disabled');　//④
+//     } else {
+//         $('#submit').removeAttr('disabled');　//⑤
+//     }
+// });
+// $('#label1_1_6').click(function() { //②
+//     if ( $(this).prop('checked') == false ) {　//③
+//         $('#submit').attr('disabled', 'disabled');　//④
+//     } else {
+//         $('#submit').removeAttr('disabled');　//⑤
+//     }
+// });
 });
