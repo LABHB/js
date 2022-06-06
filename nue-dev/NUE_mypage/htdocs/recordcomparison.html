@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>NUE mypage Recordcomparison</title>
+  <meta name="description" content="NUEは、メンズヘアケアブランドです。これまでに記録を確認してみましょう。">
+  <meta name="format-detection" content="telephone=no">
+
+  <!-- favicon読込 -->
+  <link rel="shortcut icon" href="./img/favicon.png" type="image/png">
+
+  <!-- css読込 -->
+  <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+  <link rel="stylesheet" href="./css/style.css">  <!-- 共有部分の読込 -->
+  <link rel="stylesheet" href="./css/recordcomparison.css">
+
+
+  <!-- Jquery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+  <!-- Googleフォント読込【不要になったら削除】 -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <script src="./js/top.js"></script>
+
+  <!-- フォント読込 -->
+  <link rel="stylesheet" href="https://use.typekit.net/mje6tvq.css">
+  <script type="text/javascript" src="//typesquare.com/3/tsst/script/ja/typesquare.js?628669ea81dc4fd3b384558dac1e02e5" charset="utf-8"></script>
+
+      <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-storage.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+
+  <script>
+   // Your web app's Firebase configuration
+   const firebaseConfig = {
+  apiKey: "AIzaSyA3Y9gkPcum9HERqjHFzmNhg-CVSeFT0Q0",
+  authDomain: "nues-4e350.firebaseapp.com",
+  databaseURL: "https://nues-4e350-default-rtdb.firebaseio.com",
+  storageBucket: 'gs://nues-4e350.appspot.com/',
+  projectId: "nues-4e350",
+  storageBucket: "gs://nues-4e350.appspot.com",
+  messagingSenderId: "236945135818",
+  appId: "1:236945135818:web:abf3092b0a2942827afc33"
+};
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+
+    //ストレージのルートのリファレンスを取得
+var storageRef = firebase.storage().ref();
+//ストレージのルートにあるsample.pngのリファレンスを取得    
+var imgSample = storageRef.child('foreheadCESXY2PaUNMCB6n6xEtgaSWdnLp1');
+var imgSample2 = storageRef.child('topCESXY2PaUNMCB6n6xEtgaSWdnLp1');
+window.onload = function() {
+  //htmlロード完了したらストレージの画像を表示してみる
+  imgSample.getDownloadURL().then(function(url){
+    document.getElementById("imgSample").style.backgroundImage = "url("+url+")";
+  }).catch(function(error) {
+    // Handle any errors
+    console.log(error);
+  });
+
+  //htmlロード完了したらストレージの画像を表示してみる
+  imgSample2.getDownloadURL().then(function(url){
+    document.getElementById("imgSample2").style.backgroundImage = "url("+url+")";
+  }).catch(function(error) {
+    // Handle any errors
+    console.log(error);
+  });
+};
+  </script>
+
+</head>
+<body>
+  <header class="header">
+    <button type="button" id="header-btn" class="header-btn" title="メニュー開閉"><span></span></button>
+    <h1 class="header-logo"><img src="./img/logo.svg" alt="NUE_logo" width="100"></h1>
+    <div class="header-menu">
+      <a href="#"><img src="./img/cart.svg" alt="account_circle"></a>
+      <a href="#"><img src="./img/account_circle.svg" alt="account_circle"></a>
+    </div>
+    <nav class="header-gnav">
+      <ul class="header-gnav-list">
+        <li><a href="#"><span class="material-icons header-gnav-about"> home </span>about</a></li>
+        <li><a href="#"><span class="material-icons header-gnav-products">inventory_2</span>products</a></li>
+        <li><a href="#"><span class="material-icons header-gnav-selfcheck">system_security_update_good</span>self check</a></li>
+        <li><a href="#"><span class="material-icons header-gnav-faq">help_outline</span>faq</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- /.header -->
+<main class="main">
+  <div>
+    <p class="recordtitle">記録結果</p>
+  </div>
+  <div class="bl_tabContainer">
+    <ul class="bl_tabList">
+      <li><a href="">前後比較</a></li>
+      <li><a href="" class="active">2022.05.30</a></li>
+      <li><a href="">2022.05.29</a></li>
+      <li><a href="">2022.05.28</a></li>
+      <li><a href="">2022.05.27</a></li>
+      <li><a href="">2022.05.26</a></li>
+      <li><a href="">2022.05.25</a></li>
+      <li><a href="">2022.05.24</a></li>
+      <li><a href="">2022.05.23</a></li>
+      <li><a href="">2022.05.22</a></li>
+    </ul>
+    <div class="bl_tabContent">
+      <!-- Tab01の内容 -->
+      <div>
+        <div class="record00"></div>
+        <p>Tab01の内容が入りますTab01の内容が入りますTab01の内容が入りますTab01の内容が入りますTab01の内容が入りますTab01の内容が入りますTab01の内容が入りますTab01の内容が入りますTab01の内容が入りますTab01の内容が入ります</p>
+      </div>
+      <!-- //Tab01の内容 -->
+      <!-- Tab02の内容 -->
+      <div class="active">
+        <div class="record01"></div>
+        <p>Tab02の内容が入ります</p>
+        <p>Tab02の内容が入ります</p>
+        <p>Tab02の内容が入ります</p>
+        <p>Tab02の内容が入ります</p>
+        <p>Tab02の内容が入ります</p>
+        <p>Tab02の内容が入ります</p>
+        <p>Tab02の内容が入ります</p>
+        <p>Tab02の内容が入ります</p>
+      </div>
+      <!-- //Tab02の内容 -->
+      <!-- Tab03の内容 -->
+      <div>
+        <p>Tab03の内容が入ります</p>
+      </div>
+      <!-- //Tab03の内容 -->
+      <!-- Tab04の内容 -->
+      <div>
+        <p>Tab04の内容が入ります</p>
+      </div>
+      <!-- //Tab04の内容 -->
+      <!-- Tab05の内容 -->
+      <div>
+        <p>Tab05の内容が入ります</p>
+      </div>
+      <!-- //Tab05の内容 -->
+      <!-- Tab06の内容 -->
+      <div>
+        <p>Tab06の内容が入ります</p>
+      </div>
+      <!-- //Tab06の内容 -->
+      <!-- Tab07の内容 -->
+      <div>
+        <p>Tab07の内容が入ります</p>
+      </div>
+      <!-- //Tab07の内容 -->
+      <!-- Tab08の内容 -->
+      <div>
+        <p>Tab08の内容が入ります</p>
+      </div>
+      <!-- //Tab08の内容 -->
+      <!-- Tab09の内容 -->
+      <div>
+        <p>Tab09の内容が入ります</p>
+      </div>
+      <!-- //Tab09の内容 -->
+      <!-- Tab10の内容 -->
+      <div>
+        <p>Tab10の内容が入ります</p>
+      </div>
+      <!-- //Tab10の内容 -->
+    </div>
+  </div>
+</main>
+
+  <!-- /.footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <img src="./img/logo.svg" alt="NUE">
+      </div>
+      <div class="footer-menu">
+        <ul class="footer-link-menu">
+          <li><a href="/products/">products</a>
+            <ul>
+            <li><a href="#">SawPalmetto</a></li>
+            <li><a href="#">Lysine/Vitamine</a></li>
+            </ul>
+          </li>
+          <li><a href="#">selfcheck</a></li>
+          <li><a href="#">faq</a></li>
+          <div class="footer-sns">
+            <a href="#"><img class="sns_logo Instagram" src="img/glyph-logo_May2016.png" alt="Instagram"></a>
+          </div>
+      </ul>
+      </div>
+      <div class="footer-menu">
+        <ul class="footer-link-info">
+          <li><a href="/recruit/">会社概要</a></li>
+          <li><a href="/company/">プライバシーポリシー</a></li>
+          <li><a href="/policy/">特定商品取引法による表示</a></li>
+          <li><a href="/privacy/">キャンセルポリシー</a></li>
+          <li><a href="/policy/">返金ポリシー</a></li>
+          <li><a href="/privacy/">利用規約</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="footer-copyright"><small>Copyright 2022 NUE All Rights</small></p>
+    <p class="footer-pagetop"><a href="#top">ページの先頭へ戻る</a></p>
+  </footer>
+
+  <script src="./js/recordcomparison.js"></script>
+
+</body>
+</html>
+

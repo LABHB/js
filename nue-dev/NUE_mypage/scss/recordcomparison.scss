@@ -1,0 +1,278 @@
+@charset "utf-8";
+/* ==========================
+  初期設定
+========================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+li {
+  list-style-type: none;
+}
+.recordtitle{
+  background-color: #E8DFCE;
+  font-size: 18px;
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  color: #6A4E4E;
+}
+
+.recordtitle::before{ /*アコーディオン装飾*/
+  content: "";
+  position: absolute;
+  left: 30px;
+  top:105px;
+  transition: all 0.2s ease-in-out;
+  display: block;
+  width: 15px;
+  height: 15px;
+  border-top: solid 2px #6A4E4E;
+  border-right: solid 2px #6A4E4E;
+  -webkit-transform: rotate(225deg);
+  transform: rotate(225deg);
+}
+
+/* ==========================
+  タブ
+========================== */
+.bl_tabContainer {
+  background-color: #E8DFCE;
+}
+.bl_tabContainer + * {
+  margin-top: 30px;
+}
+/* タブリスト */
+.bl_tabList {
+  display: flex;
+  overflow-x: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  margin-bottom: 0;
+  background-color: #E8DFCE;
+}
+.bl_tabList::-webkit-scrollbar {
+  display: none;
+}
+.bl_tabList li {
+  margin-right: 5px;
+}
+.bl_tabList li:last-of-type {
+  margin-right: 0;
+}
+.bl_tabList li a {
+  width: 80px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  background-color: #E8DFCE;
+  padding: 20px 10px;
+  text-decoration: none;
+  color: #6A4E4E;
+  // transition: 0.1s;
+}
+.bl_tabList li a.active {
+  border-bottom: 1px solid #FAF7F2;
+  border-left: 1px solid #6A4E4E;
+  border-right: 1px solid #6A4E4E;
+  border-top: 1px solid #6A4E4E;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  background-color: #FAF7F2;
+  cursor: text;
+  z-index: 100;
+}
+/* タブコンテンツ */
+.bl_tabContent{
+  margin-top: -1px;
+  border-top: 1px solid #6A4E4E;
+}
+
+.bl_tabContent > div {
+  background-color: #FAF7F2;
+  padding: 10px 30px 20px 30px;
+  // padding: 20px;
+  display: none;
+}
+.bl_tabContent > div.active {
+  display: block;
+}
+.bl_tabContent > div > * + * {
+  margin-top: 10px;
+}
+
+/* ==========================
+  タブ以外のコンテンツの中身
+========================== */
+.ly_inner {
+  width: 100%;
+  max-width: 1080px;
+  margin: 100px auto;
+  padding: 30px;
+  background-color: #ccc;
+}
+.ly_inner h2 {
+  font-size: 150%;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+.md_textblock > * + * {
+  margin-top: 10px;
+}
+
+/* ====================================
+  ここからPC幅
+==================================== */
+@media screen and (min-width: 768px) {
+  .hp_displaySP {
+    display: none !important;
+  }
+  .bl_tabList li a:not(.active):hover {
+    border-left: 1px solid #6A4E4E;
+    border-right: 1px solid #6A4E4E;
+    border-top: 1px solid #6A4E4E;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color:#FAF7F2 // ホバー効果はコルさんに相談;
+  }
+}
+
+/* ====================================
+  ここからスマホ幅
+==================================== */
+@media screen and (max-width: 767px) {
+  .hp_displayPC {
+    display: none !important;
+  }
+}
+
+/* ====================================
+  compareguideに関しての記述
+==================================== */
+
+.balloon2-top {
+  position: relative;
+  display: inline-block;
+  margin: 1.5em 0;
+  padding: 7px 10px;
+  min-width: 120px;
+  max-width: 100%;
+  height: 50px;
+  color: #555;
+  font-size: 10px;
+  font-weight: bold;
+  background: #ECE9E7;
+  // border: solid 3px #555;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+
+.balloon2-top:before {
+  content: "";
+  position: absolute;
+  top: -24px;
+  left: 10%;
+  margin-left: -15px;
+  border: 12px solid transparent;
+  border-bottom: 12px solid #ECE9E7;
+  z-index: 2;
+}
+
+.balloon2-top p {
+  margin: 0;
+  padding: 0;
+}
+
+.batsu {
+  display: inline-block;
+  position: relative;
+  width: 30px;
+  height: 30px;
+}
+ 
+.batsu::before, .batsu::after { /* 共通設定 */
+  content: "";
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  width: 2px; /* 棒の幅（太さ） */
+  height: 20px; /* 棒の高さ */
+  background: #333;
+}
+ 
+.batsu::before {
+  transform: translate(-50%,-50%) rotate(45deg);
+}
+ 
+.batsu::after {
+  transform: translate(-50%,-50%) rotate(-45deg);
+}
+
+.table {
+  display: table; /*テーブル要素に変更*/
+  width: 100%;
+  .cell { /*子要素*/
+    display: table-cell; /*テーブルセル要素に変更*/
+    vertical-align: middle; /*上下中央*/
+    }
+}
+
+/* ====================================
+  recordに関しての記述
+==================================== */
+.record{
+  .title{
+    background-color: #E8DFCE;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    position: relative;
+    height: 40px;
+    p {
+      color: #363636;
+      font-size: 12px;
+      font-weight: bold;
+      text-align: center;
+      vertical-align: middle;
+      margin-left: 20px;
+    }
+    span {
+      position: absolute;
+      top: 3px;
+      right: 5px; 
+      width: 24px;
+    }
+  }
+  .content{
+    margin: 10px;
+    font-size: 12px;
+    .hairimage {
+      display: block;
+      width: 80%;
+      margin: 20px auto;
+    }
+  }
+}
+/* ====================================
+  deletebtnに関しての記述
+==================================== */
+.btn{
+  margin: 20px auto;
+}
+.deletebtn{
+  width: 100%;
+  height: 30px;
+  background-color: white;
+  color: #4E483A;
+  border:1px solid #715959;
+}
+
+
+/* ====================================
+  セレクトボックスに関しての記述
+==================================== */
