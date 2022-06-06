@@ -170,11 +170,11 @@ ul {
     border: solid 1px #8B806C;
     color: white;
   }
-  .fa-null{
-    background-color: white;
-    border: solid 1px #6A4E4E;
-    color: #6A4E4E;
-  }
+  // .fa-null{
+  //   background-color: white;
+  //   border: solid 1px #6A4E4E;
+  //   color: #6A4E4E;
+  // }
 }
 
 /*インプット欄のデザイン*/
@@ -251,8 +251,8 @@ input[type="text"] {
 }
 .progress_front {
   display: block;
-//80%*1/7=11.4285...%
-  width: 11%;
+  //1/7=14.285...%
+  width: 14%;
   height: 10px;
   background: #C1B6A1;
   position: absolute;

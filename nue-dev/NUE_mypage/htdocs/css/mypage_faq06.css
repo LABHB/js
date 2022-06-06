@@ -55,6 +55,10 @@ ul {
   width: 100%;
   text-align: center;
 }
+.main .answer_box .is-hidden {
+  /*横山さんご指摘事項反映*/
+  display: none;
+}
 .main .answer_box .option1-title::after {
   /*アコーディオン装飾*/
   content: "";
@@ -77,9 +81,6 @@ ul {
 }
 .main .answer_box .label1_1.written, .main .answer_box .label1_2.written, .main .answer_box .label1_3.written {
   background-color: #EBE2D6;
-}
-.main .answer_box input[type=checkbox] {
-  display: none;
 }
 .main .answer_box .label1_1_1:hover, .main .answer_box .label1_1_2:hover, .main .answer_box .label1_1_3:hover, .main .answer_box .label1_2_1:hover, .main .answer_box .label1_2_2:hover, .main .answer_box .label1_2_3:hover, .main .answer_box .label1_3_1:hover, .main .answer_box .label1_3_2:hover, .main .answer_box .label1_3_3:hover,
 .main .answer_box .option2btn input:checked ~ .label1_1_1, .main .answer_box .option2btn input:checked ~ .label1_1_2, .main .answer_box .option2btn input:checked ~ .label1_1_3,
@@ -113,6 +114,11 @@ ul {
   border: solid 1px #6A4E4E;
   border-radius: 15px;
   cursor: pointer;
+}
+.main .answer_box .fa-filledout {
+  background-color: #8B806C;
+  border: solid 1px #8B806C;
+  color: white;
 }
 .main input[type=text] {
   width: 100%;
@@ -188,7 +194,7 @@ ul {
 
 .progress_front {
   display: block;
-  width: 69%;
+  width: 86%;
   height: 10px;
   background: #C1B6A1;
   position: absolute;

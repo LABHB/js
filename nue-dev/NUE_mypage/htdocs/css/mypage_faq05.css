@@ -55,6 +55,10 @@ ul {
   width: 100%;
   text-align: center;
 }
+.main .answer_box .is-hidden {
+  /*横山さんご指摘事項反映*/
+  display: none;
+}
 .main .answer_box .option1-title::after {
   /*アコーディオン装飾*/
   content: "";
@@ -109,6 +113,11 @@ ul {
 }
 .main .answer_box input:checked + .label1_7 {
   background: #8B806C;
+  border: solid 1px #8B806C;
+  color: white;
+}
+.main .answer_box .fa-filledout {
+  background-color: #8B806C;
   border: solid 1px #8B806C;
   color: white;
 }
@@ -186,7 +195,7 @@ ul {
 
 .progress_front {
   display: block;
-  width: 57%;
+  width: 71%;
   height: 10px;
   background: #C1B6A1;
   position: absolute;

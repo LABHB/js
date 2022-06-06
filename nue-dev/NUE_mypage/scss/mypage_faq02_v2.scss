@@ -77,6 +77,10 @@ ul {
     width: 100%;
     text-align: center;
   }
+  .is-hidden { /*横山さんご指摘事項反映*/
+    display: none;
+   }
+
   .option1-title::after{ /*アコーディオン装飾*/
     content: "";
     position: absolute;
@@ -166,6 +170,12 @@ ul {
     border: solid 1px #8B806C;
     color: white;
   }
+
+  .fa-filledout{
+    background-color: #8B806C;
+    border: solid 1px #8B806C;
+    color: white;
+  }
 }
 
 /*インプット欄のデザイン*/
@@ -242,8 +252,8 @@ input[type="text"] {
 }
 .progress_front {
   display: block;
-//80%*2/7=22.8571%
-  width: 23%;
+//2/7=28.571%
+  width: 29%;
   height: 10px;
   background: #C1B6A1;
   position: absolute;

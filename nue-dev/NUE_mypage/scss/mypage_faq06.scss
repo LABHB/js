@@ -77,6 +77,10 @@ ul {
     width: 100%;
     text-align: center;
   }
+  .is-hidden { /*横山さんご指摘事項反映*/
+    display: none;
+   }
+
   .option1-title::after{ /*アコーディオン装飾*/
     content: "";
     position: absolute;
@@ -102,9 +106,9 @@ ul {
   }
   
   /*チェックは見えなくする*/
-  input[type="checkbox"] {
-    display: none;
-  }
+  // input[type="checkbox"] {
+  //   display: none;
+  // }
 
   .label1_1_1:hover ,.label1_1_2:hover , .label1_1_3:hover,.label1_2_1:hover ,.label1_2_2:hover , .label1_2_3:hover,.label1_3_1:hover,.label1_3_2:hover , .label1_3_3:hover,
   .option2btn input:checked ~ .label1_1_1 ,.option2btn input:checked ~ .label1_1_2 , .option2btn input:checked ~ .label1_1_3,
@@ -141,7 +145,11 @@ ul {
     border-radius: 15px;
     cursor :pointer;
   }
-
+  .fa-filledout{
+    background-color: #8B806C;
+    border: solid 1px #8B806C;
+    color: white;
+  }
 }
 
 /*インプット欄のデザイン*/
@@ -217,8 +225,8 @@ input[type="text"] {
 }
 .progress_front {
   display: block;
-//80%*6/7=68.5814%
-  width: 69%;
+//6/7=85.814%
+  width: 86%;
   height: 10px;
   background: #C1B6A1;
   position: absolute;

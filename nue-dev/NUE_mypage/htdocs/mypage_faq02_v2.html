@@ -33,7 +33,7 @@
   <script type="text/javascript" src="//typesquare.com/3/tsst/script/ja/typesquare.js?628669ea81dc4fd3b384558dac1e02e5" charset="utf-8"></script>
   
   <!-- <script src="./js/top.js"></script> -->
-  <script src="./js/mypage_faq02.js"></script>
+  <script src="./js/mypage_faq01_v2.js"></script>
 </head>
 
 <body>
@@ -72,27 +72,27 @@
           <span class="option1-title">良い変化</span> 
           <div class="option2">
             <div class="option2btn hidden_box1_1_1">
-              <input type="checkbox" id="label1_1_1"/>
+              <input type="checkbox" class="chk" id="label1_1_1"/>
               <label class="label1_1_1" for="label1_1_1">産毛が生えてきた</label>
             </div>
             <div class="option2btn hidden_box1_1_2">
-              <input type="checkbox" id="label1_1_2"/>
+              <input type="checkbox" class="chk" id="label1_1_2"/>
               <label class="label1_1_2" for="label1_1_2">コシやハリが出てきた</label>
             </div>
             <div class="option2btn hidden_box1_1_3">
-              <input type="checkbox" id="label1_1_3"/>
+              <input type="checkbox" class="chk" id="label1_1_3"/>
               <label class="label1_1_3" for="label1_1_3">地肌が見えなくなってきた</label>
             </div>
             <div class="option2btn hidden_box1_1_4">
-              <input type="checkbox" id="label1_1_4"/>
+              <input type="checkbox" class="chk" id="label1_1_4"/>
               <label class="label1_1_4" for="label1_1_4">伸びるスピードが速くなった</label>
             </div>
             <div class="option2btn hidden_box1_1_5">
-              <input type="checkbox" id="label1_1_5"/>
+              <input type="checkbox" class="chk" id="label1_1_5"/>
               <label class="label1_1_5" for="label1_1_5">スタイリングがしやすくなった</label>
             </div>
             <div class="option2btn hidden_box1_1_6">
-              <input type="checkbox" id="label1_1_6"/>
+              <input type="checkbox" class="chk" id="label1_1_6"/>
               <label class="label1_1_6">その他
                 <input class="fa1" type="text" placeholder="例) 抜け毛が、太くなってきた">
               </label>
@@ -106,27 +106,27 @@
           <div class="option2">
             <div class="option2btn hidden_box1_2_1">
               <div class="option2btn hidden_box1_2_1">
-                <input type="checkbox" id="label1_2_1"/>
+                <input type="checkbox" class="chk" id="label1_2_1"/>
                 <label class="label1_2_1" for="label1_2_1">産毛が減った</label>
               </div>
               <div class="option2btn hidden_box1_2_2">
-                <input type="checkbox" id="label1_2_2"/>
+                <input type="checkbox" class="chk" id="label1_2_2"/>
                 <label class="label1_2_2" for="label1_2_2">コシやハリが無くなった</label>
               </div>
               <div class="option2btn hidden_box1_2_3">
-                <input type="checkbox" id="label1_2_3"/>
+                <input type="checkbox" class="chk" id="label1_2_3"/>
                 <label class="label1_2_3" for="label1_2_3">地肌が見えてきた</label>
               </div>
               <div class="option2btn hidden_box1_2_4">
-                <input type="checkbox" id="label1_2_4"/>
+                <input type="checkbox" class="chk" id="label1_2_4"/>
                 <label class="label1_2_4" for="label1_2_4">伸びる速度が遅くなった</label>
               </div>
               <div class="option2btn hidden_box1_2_5">
-                <input type="checkbox" id="label1_2_5"/>
+                <input type="checkbox" class="chk" id="label1_2_5"/>
                 <label class="label1_2_5" for="label1_2_5">スタイリングがしづらくなった</label>
               </div>
               <div class="option2btn hidden_box1_2_6">
-                <input type="checkbox" id="label1_2_6"/>
+                <input type="checkbox" class="chk" id="label1_2_6"/>
                 <label class="label1_2_6">その他
                   <input class="fa2" type="text" placeholder="例) 抜け毛が、細くなってきた">
                 </label>
@@ -136,7 +136,7 @@
         </div>
         
         <!-- <div class="label1_3"> -->
-          <input type="checkbox" id="label1_3"/>
+          <input type="checkbox" class="chk" id="label1_3"/>
           <label class="label1_3" for="label1_3">変わらない</label>
         <!-- </div> -->
 
@@ -185,7 +185,7 @@
     <p class="footer-pagetop"><a href="#top">ページの先頭へ戻る</a></p>
   </footer>
     <!--** 以下Firebase **-->
-    <script type="module">
+    <!-- <script type="module">
       // Import the functions you need from the SDKs you need
       import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-app.js";
       import { getDatabase, ref, push, set, onChildAdded, remove, update, child, onChildRemoved, onChildChanged } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-database.js";
@@ -305,6 +305,6 @@
           console.log(dbRef);
           set(dbRef, msg);           //"chat"にユニークKEYをつけてオブジェクトデータを登録
      });
-    </script>
+    </script> -->
 </body>
 </html>
