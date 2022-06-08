@@ -175,7 +175,7 @@ li {
   content: "";
   position: absolute;
   top: -24px;
-  left: 10%;
+  left: 30px;
   margin-left: -15px;
   border: 12px solid transparent;
   border-bottom: 12px solid #ECE9E7;
@@ -198,7 +198,7 @@ li {
   content: "";
   position: absolute;
   top: 60%;
-  left: 50%;
+  left: 0px;
   width: 2px; /* 棒の幅（太さ） */
   height: 20px; /* 棒の高さ */
   background: #333;
@@ -218,6 +218,7 @@ li {
   .cell { /*子要素*/
     display: table-cell; /*テーブルセル要素に変更*/
     vertical-align: middle; /*上下中央*/
+    width: 95%;
     }
 }
 
