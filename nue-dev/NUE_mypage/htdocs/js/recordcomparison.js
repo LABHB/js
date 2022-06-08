@@ -16,7 +16,7 @@ $(function(){
 // スムーススクロール
 window.addEventListener('DOMContentLoaded', function () {
   const anchorLinks = document.querySelectorAll('a[href^="#"]');
-  const anchorLinksArr = Array.prototype.slice.call(anchorLinks);
+  const anchorLinksArr = Array.from(anchorLinks);
 
   anchorLinksArr.forEach(function (link) {
     link.addEventListener('click', function (e) {
@@ -32,7 +32,7 @@ window.addEventListener('DOMContentLoaded', function () {
   });
 });
 
-// インクルード
+// インクルード（必要？）
 fetch("./record00.html")
   .then(response => {
     return response.text()
@@ -47,87 +47,8 @@ fetch("./record01.html")
   .then(data => {
     document.querySelector(".record01").innerHTML = data;
   });
-fetch("inc/calendar02.html")
-  .then(response => {
-    return response.text()
-  })
-  .then(data => {
-    document.querySelector(".calendar02").innerHTML = data;
-  });
-fetch("inc/calendar03.html")
-  .then(response => {
-    return response.text()
-  })
-  .then(data => {
-    document.querySelector(".calendar03").innerHTML = data;
-  });
-fetch("inc/calendar04.html")
-  .then(response => {
-    return response.text()
-  })
-  .then(data => {
-    document.querySelector(".calendar04").innerHTML = data;
-  });
-fetch("inc/calendar05.html")
-  .then(response => {
-    return response.text()
-  })
-  .then(data => {
-    document.querySelector(".calendar05").innerHTML = data;
-  });
-  fetch("inc/calendar06.html")
-  .then(response => {
-    return response.text()
-  })
-  .then(data => {
-    document.querySelector(".calendar06").innerHTML = data;
-  });
-  fetch("inc/calendar07.html")
-  .then(response => {
-    return response.text()
-  })
-  .then(data => {
-    document.querySelector(".calendar07").innerHTML = data;
-  });
-  fetch("inc/calendar08.html")
-  .then(response => {
-    return response.text()
-  })
-  .then(data => {
-    document.querySelector(".calendar08").innerHTML = data;
-  });
-  fetch("inc/calendar09.html")
-  .then(response => {
-    return response.text()
-  })
-  .then(data => {
-    document.querySelector(".calendar09").innerHTML = data;
-  });
-  fetch("inc/calendar10.html")
-  .then(response => {
-    return response.text()
-  })
-  .then(data => {
-    document.querySelector(".calendar10").innerHTML = data;
-  });
-  fetch("inc/calendar11.html")
-  .then(response => {
-    return response.text()
-  })
-  .then(data => {
-    document.querySelector(".calendar11").innerHTML = data;
-  });
-  fetch("inc/calendar12.html")
-    .then(response => {
-      return response.text()
-    })
-    .then(data => {
-      document.querySelector(".calendar12").innerHTML = data;
-    });
 
-
-    // ガイドを消す
+// ガイドを消す
   $('body').on('click', '.batsu' , function() {
-    console.log("ok");
     $(".compareguide").css("display", "none");
 });

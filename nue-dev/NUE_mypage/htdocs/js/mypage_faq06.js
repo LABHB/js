@@ -11,9 +11,8 @@ jQuery(function ($) {
           $(this).addClass("written");
         }else if($(".chk:checked").length == 0 && $($target).hasClass("open") == true){
         $(this).removeClass("written");
-    }else if($(".chk:checked").length !== 0 && $($target).hasClass("open") == true){
+        }else if($(".chk:checked").length !== 0 && $($target).hasClass("open") == true){
         $(this).addClass("written");
-
       }
       
   //クリックしたoption以外の全てのopenを取る
@@ -46,7 +45,7 @@ $(function() {
         $(this).click(function() { //②
             if ( $(this).prop('checked') == false && $(".chk:checked").length == 0) {　//③
             $('#submit').attr('disabled', 'disabled');　//④
-        } else {
+            }else{
             const $wrapper = $(this).closest(".answer_box");
             const $tgt = $wrapper.find('input[type="checkbox"]');
             const $tgtspn = $wrapper.find('.option1');
